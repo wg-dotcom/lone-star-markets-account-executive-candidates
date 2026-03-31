@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gabri Lourens - Account Executive | Lone Star Markets</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument%20Serif:wght@400;500;600;700&family=DM%20Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --primary: #c17b4e;
+      --dark: #1e2924;
+      --highlight: #c9c0b4;
+      --white: #FFFFFF;
+      --gray-50: #F8FAFB;
+      --gray-100: #F1F5F4;
+      --gray-200: #E2E8E7;
+      --gray-400: #94A3A0;
+      --gray-600: #4B5E5A;
+      --gray-700: #374845;
+      --font-heading: 'Instrument Serif', sans-serif;
+      --font-body: 'DM Sans', sans-serif;
+    }
+    body { font-family: var(--font-body); background: var(--gray-50); color: var(--dark); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+    .back-link { display: block; background: var(--dark); padding: 12px 40px; font-family: var(--font-heading); font-size: 14px; font-weight: 500; }
+    .back-link a { color: var(--highlight); text-decoration: none; transition: color 0.2s; }
+    .back-link a:hover { color: var(--white); }
+    .back-link a::before { content: "\2190\00a0\00a0"; }
+    header { background: var(--dark); padding: 48px 40px 52px; position: relative; overflow: hidden; }
+    header::after { content: ""; position: absolute; bottom: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, var(--primary), var(--highlight)); }
+    .header-brand { font-family: var(--font-heading); font-size: 32px; font-weight: 700; color: var(--white); letter-spacing: -0.5px; margin-bottom: 4px; }
+    .header-brand span { color: var(--highlight); }
+    .header-subtitle { font-family: var(--font-body); font-size: 14px; font-weight: 400; color: var(--gray-400); text-transform: uppercase; letter-spacing: 2px; }
+    .candidate-banner { background: linear-gradient(135deg, var(--primary), #c9c0b4); padding: 36px 40px; color: var(--white); }
+    .candidate-name { font-family: var(--font-heading); font-size: 28px; font-weight: 700; letter-spacing: -0.3px; margin-bottom: 6px; }
+    .candidate-title { font-size: 16px; font-weight: 400; opacity: 0.9; margin-bottom: 12px; }
+    .candidate-contact { display: flex; flex-wrap: wrap; gap: 20px; font-size: 13px; opacity: 0.85; }
+    .resume-body { max-width: 900px; margin: 0 auto; padding: 40px 40px 60px; }
+    .section { margin-bottom: 36px; }
+    .section-title { font-family: var(--font-heading); font-size: 18px; font-weight: 700; color: var(--primary); text-transform: uppercase; letter-spacing: 1.5px; padding-bottom: 10px; border-bottom: 2px solid var(--gray-200); margin-bottom: 18px; }
+    .summary-text { font-size: 15px; color: var(--gray-700); line-height: 1.75; }
+    .skills-grid { display: grid; grid-template-columns: 170px 1fr; gap: 10px 20px; font-size: 14px; }
+    .skill-label { font-weight: 600; color: var(--dark); padding: 4px 0; }
+    .skill-value { color: var(--gray-600); padding: 4px 0; line-height: 1.6; }
+    .experience-item { margin-bottom: 24px; padding-left: 20px; border-left: 3px solid var(--primary); }
+    .experience-item:last-child { margin-bottom: 0; }
+    .exp-header { margin-bottom: 8px; }
+    .exp-role { font-family: var(--font-heading); font-size: 16px; font-weight: 700; color: var(--dark); }
+    .exp-company { font-size: 14px; font-weight: 500; color: var(--primary); }
+    .exp-meta { font-size: 13px; color: var(--gray-400); margin-top: 2px; }
+    .exp-desc { font-size: 14px; color: var(--gray-600); line-height: 1.65; }
+    .exp-bullets { font-size: 14px; color: var(--gray-600); line-height: 1.65; padding-left: 20px; margin-top: 6px; }
+    .exp-bullets li { margin-bottom: 4px; }
+    .education-item, .cert-item, .lang-item { font-size: 15px; margin-bottom: 8px; }
+    .edu-degree, .cert-name { font-weight: 600; color: var(--dark); }
+    .edu-school { color: var(--primary); font-weight: 500; }
+    .edu-year { font-size: 13px; color: var(--gray-400); }
+    footer { background: var(--dark); padding: 32px 40px; text-align: center; position: relative; }
+    footer::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--primary), var(--highlight)); }
+    .footer-text { font-family: var(--font-heading); font-size: 14px; color: var(--gray-400); }
+    .footer-text strong { color: var(--white); }
+    .footer-text .accent { color: var(--highlight); }
+    .footer-sub { font-size: 12px; color: var(--gray-600); margin-top: 8px; }
+    @media (max-width: 640px) {
+      header, .candidate-banner, .resume-body, .back-link, footer { padding-left: 20px; padding-right: 20px; }
+      .skills-grid { grid-template-columns: 1fr; }
+      .candidate-contact { flex-direction: column; gap: 6px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="back-link"><a href="index.html">Back to All Candidates</a></div>
+  <header>
+    <div class="header-brand">Lone Star Markets<span>.</span></div>
+    <div class="header-subtitle">Candidate Resume</div>
+  </header>
+  <div class="candidate-banner">
+    <div class="candidate-name">Gabri Lourens</div>
+    <div class="candidate-title">Account Executive | South Africa</div>
+    <div class="candidate-contact">
+      <span>South Africa</span>
+      <span>8 yrs B2B Sales experience</span>
+    </div>
+  </div>
+  <div class="resume-body">
+    <div class="section"><div class="section-title">Professional Summary</div><p class="summary-text">Dynamic Sales and Business Development Leader with 10+ years of experience in healthcare staffing, hospitality, and corporate sales. Proven track record in recruiting, team leadership, and driving operational excellence.</p></div>
+    <div class="section"><div class="section-title">Skills &amp; Tech Stack</div><div class="skills-grid">
+    <div class="skill-label">Management</div>
+    <div class="skill-value">Trained and mentored new sales associates, improving their sales performance and customer service skills</div>
+    <div class="skill-label">Sales</div>
+    <div class="skill-value">In-depth knowledge of products, features, and benefits, enabling me to provide expert advice and guidance to customers</div>
+    <div class="skill-label">Communication</div>
+    <div class="skill-value">Strong communication skills, including effective verbal and written communication, active listening, and empathy</div>
+    <div class="skill-label">CRM</div>
+    <div class="skill-value">Salesforce, Salesloft, Hubspot, Apollo, Cognism, Google sheets, Aircall, Ring Central</div></div></div>
+    <div class="section"><div class="section-title">Work Experience</div>
+    <div class="experience-item">
+      <div class="exp-header">
+        <div class="exp-role">Sales Manager USA (Remote)</div>
+        <div class="exp-company">ShiftRx</div>
+        <div class="exp-meta">May 2025 – Present</div>
+      </div>
+      <ul class="exp-bullets"><li>Lead sales strategies and business growth initiatives in healthcare staffing focused on pharmacy.</li><li>Coach and mentor a high-performing sales team, conducting call reviews and providing feedback.</li><li>Build and maintain strong relationships with pharmacies and healthcare providers to drive long-term partnerships.</li><li>Oversee recruitment and onboarding of pharmacists and pharmacy partners ensuring seamless shift coverage.</li><li>Utilize CRM tools and data analytics to optimize outreach and improve conversion rates.</li><li>Monitor industry trends to refine strategies and drive innovation.</li></ul>
+    </div>
+    <div class="experience-item">
+      <div class="exp-header">
+        <div class="exp-role">Business Development – Pharmacist Recruiter</div>
+        <div class="exp-company">ShiftRx</div>
+        <div class="exp-meta">Aug 2024 – Jan 2025</div>
+      </div>
+      <ul class="exp-bullets"><li>Sourced, engaged, and onboarded licensed pharmacists and pharmacy technicians for shift coverage across multiple U.S. states.</li><li>Maintained a 98%+ shift fill rate through proactive candidate outreach and relationship management.</li><li>Conducted candidate screening, credentialing coordination, and compliance tracking.</li><li>Collaborated with operations teams to fulfill urgent and ongoing staffing needs.</li><li>Acted as Customer Success support by resolving complaints, handling payment processing issues, and addressing client queries.</li></ul>
+    </div>
+    <div class="experience-item">
+      <div class="exp-header">
+        <div class="exp-role">Account Manager Europe</div>
+        <div class="exp-company">DFE (DOMINIC FLEMING ELECTRICAL)</div>
+        <div class="exp-meta">Dec 2024 – July 2025</div>
+      </div>
+      <ul class="exp-bullets"><li>Manage client relationships and drive business growth across the European retail, corporate, and distributor markets.</li><li>Deliver tailored sourcing solutions for branded and unbranded electrical and lifestyle products.</li><li>Develop customized sourcing strategies aligned with client goals and market trends.</li><li>Achieve and exceed sales targets through consultative selling and client engagement.</li><li>Collaborate cross-functionally with logistics, marketing, and product teams to ensure client satisfaction.</li></ul>
+    </div>
+    <div class="experience-item">
+      <div class="exp-header">
+        <div class="exp-role">Sales Development Representative &amp; Customer Success</div>
+        <div class="exp-company">CLIPBOARD HEALTH</div>
+        <div class="exp-meta">Nov 2021 – Jul 2024</div>
+      </div>
+      <ul class="exp-bullets"><li>Generated and qualified leads in the healthcare staffing sector through cold outreach and networking.</li><li>Built strong client relationships and managed outreach campaigns using CRM tools.</li><li>Supported customer success by resolving client complaints, managing payment issues, and answering queries.</li><li>Collaborated with sales teams to hand over qualified leads and support closing processes.</li><li>Conducted market research to stay informed on industry trends and optimize sales strategies.</li></ul>
+    </div>
+    <div class="experience-item">
+      <div class="exp-header">
+        <div class="exp-role">Restaurant General Manager</div>
+        <div class="exp-company">KFC</div>
+        <div class="exp-meta">Feb 2016 – Oct 2019</div>
+      </div>
+      <ul class="exp-bullets"><li>Oversaw daily restaurant operations, ensuring quality control and efficient processes.</li><li>Managed and scheduled staff, including supervisors, cooks, and front-line employees.</li><li>Handled customer complaints and ensured high levels of customer satisfaction.</li><li>Monitored inventory levels, controlled costs, and maintained budget targets.</li><li>Ensured compliance with health, safety, and sanitation standards.</li><li>Prepared operational and financial performance reports for senior management.</li><li>Maintained and supervised equipment maintenance and operational efficiency.</li></ul>
+    </div>
+    <div class="experience-item">
+      <div class="exp-header">
+        <div class="exp-role">Area Coach and Compliance Auditor</div>
+        <div class="exp-company">KFC</div>
+        <div class="exp-meta">Jan 2016 – Sep 2019</div>
+      </div>
+      <ul class="exp-bullets"><li>Conducted regular site visits to multiple KFC locations to monitor operational standards.</li><li>Assessed performance of restaurant management teams, focusing on service quality and compliance.</li><li>Performed compliance audits and documented findings with improvement recommendations.</li><li>Delivered training and coaching sessions to enhance operational efficiency and staff development.</li><li>Monitored health and safety protocols and ensured adherence across locations.</li><li>Prepared detailed audit and performance reports for senior leadership.</li></ul>
+    </div>
+    <div class="experience-item">
+      <div class="exp-header">
+        <div class="exp-role">Project Catering Manager - Corporate Catering</div>
+        <div class="exp-company">TSEBO SOLUTIONS GROUP</div>
+        <div class="exp-meta">Feb 2013 – Sep 2016</div>
+      </div>
+      <ul class="exp-bullets"><li>Consulted with corporate clients to design and deliver customized catering proposals and events.</li><li>Planned and coordinated event logistics including staffing, menus, and vendor management.</li><li>Managed catering budgets and controlled costs to ensure profitability.</li><li>Hired and trained catering staff, ensuring excellent customer service delivery.</li><li>Ensured compliance with health, safety, and food hygiene regulations.</li><li>Collected client feedback and performed quality assurance checks to improve service.</li></ul>
+    </div>
+    <div class="experience-item">
+      <div class="exp-header">
+        <div class="exp-role">Banqueting Operations Manager</div>
+        <div class="exp-company">SAXON HOTEL, VILLAS AND SPA</div>
+        <div class="exp-meta">Apr 2010 – Jul 2013</div>
+      </div>
+      <ul class="exp-bullets"><li>Planned and coordinated banquets, weddings, conferences, and other bespoke events.</li><li>Managed event logistics including setup, seating, audio-visuals, and décor.</li><li>Consulted with clients on event details and menu customization.</li><li>Recruited, trained, and supervised banqueting staff; managed schedules and coverage.</li><li>Controlled event budgets and handled financial transactions.</li><li>Ensured quality assurance and compliance with health and safety standards.</li><li>Promoted banqueting services and collaborated with other hotel departments for seamless event delivery.</li></ul>
+    </div></div>
+    <div class="section"><div class="section-title">Education</div>
+    <div class="education-item">
+      <div class="edu-degree">BCom Marketing and Management Science, Marketing</div>
+      <div class="edu-school">IMM Graduate School</div>
+      <div class="edu-year">Jan 2022 – Expected 2026</div>
+    </div>
+    <div class="education-item">
+      <div class="edu-degree">Postgraduate Degree, Hotel, Motel, and Restaurant Management</div>
+      <div class="edu-school">American Hotel &amp; Lodging Educational Institute (AHLEI)</div>
+      <div class="edu-year">Jan 2005 – Jul 2008</div>
+    </div></div>
+    
+    
+  </div>
+  <footer>
+    <div class="footer-text">Presented by <strong>Sagan</strong> for <strong class="accent">Lone Star Markets</strong></div>
+    <div class="footer-sub">getsagan.com · Redefining Recruitment</div>
+  </footer>
+</body>
+</html>
