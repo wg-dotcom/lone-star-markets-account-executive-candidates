@@ -1,17 +1,21 @@
 <!DOCTYPE html>
-<html lang="en"><head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Account Executive Candidates — Lone Star Markets</title>
-  <link rel="icon" type="image/png" href="https://www.lonestarmarkets.com/assets/market_photos/victor.jpg">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-  <link href="https://fonts.googleapis.com/css2?family=Instrument%20Serif:wght@300;400;500;600;700;800&amp;family=DM%20Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&amp;display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="https://www.lonestarmarkets.com/assets/market_photos/victor.jpg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Instrument%20Serif:wght@300;400;500;600;700;800&family=DM%20Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
   <style>
     :root {
       --primary: #c17b4e;
       --primary-dark: #a46942;
       --primary-deeper: #875637;
+      --primary-soft: #c17b4e26;
+      --primary-light: #c17b4e14;
+      --accent-light: #d4a383;
       --dark: #1e2924;
       --highlight: #c9c0b4;
       --bg-light: #39433e;
@@ -32,89 +36,97 @@
       --border-strong: rgba(255,255,255,0.25);
       --tag-bg: #c17b4e33;
       --tag-color: #d4a383;
-      --shadow-sm: 0 2px 8px rgba(0,0,0,0.4);
-      --shadow-md: 0 8px 30px rgba(0,0,0,0.5);
-      --radius: 14px;
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.04), 0 4px 12px rgba(0,0,0,0.03);
+      --shadow-md: 0 1px 3px rgba(0,0,0,0.04), 0 8px 28px rgba(0,0,0,0.06);
+      --shadow-lg: 0 1px 3px rgba(0,0,0,0.04), 0 16px 48px rgba(0,0,0,0.08);
+      --radius: 16px;
       --font-heading: 'Instrument Serif', sans-serif;
       --font-body: 'DM Sans', sans-serif;
+      --font-meta: 'Poppins', sans-serif;
     }
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
-    body { font-family: 'DM Sans', 'Instrument Serif', sans-serif; font-size: 16px; color: var(--text-dark); background: var(--bg-page); line-height: 1.6; }
+    body { font-family: var(--font-body); font-size: 16px; color: var(--text-primary); background: var(--bg-page); line-height: 1.6; -webkit-font-smoothing: antialiased; }
 
-    .site-header { background: var(--bg-card); padding: 0 32px; position: sticky; top: 0; z-index: 100; box-shadow: var(--shadow-sm); border-bottom: 1px solid var(--border); }
-    .header-inner { max-width: 1080px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 68px; }
-    .header-brand { display: flex; align-items: center; gap: 14px; text-decoration: none; color: var(--text-primary); }
-    .header-brand img { height: 32px; width: auto; }
-    .header-divider { width: 1px; height: 28px; background: var(--border); }
-    .header-title { font-family: var(--font-heading); font-weight: 600; font-size: 14px; color: var(--text-primary); opacity: 0.7; letter-spacing: 0.03em; }
-    .header-sagan { display: flex; align-items: center; gap: 8px; font-family: var(--font-heading); font-size: 12px; font-weight: 600; color: var(--text-mid); letter-spacing: 0.03em; text-transform: uppercase; }
+    /* ── Scroll animations ── */
+    .fade-in { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
 
-    .hero { background: linear-gradient(145deg, var(--dark) 0%, var(--primary-deeper) 40%, var(--primary) 100%); color: var(--white); padding: 72px 32px 64px; text-align: center; position: relative; overflow: hidden; }
-    .hero::before { content: ''; position: absolute; top: -50%; right: -20%; width: 600px; height: 600px; background: radial-gradient(circle, #c9c0b41a 0%, transparent 70%); border-radius: 50%; }
-    .hero-eyebrow { display: inline-block; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); border-radius: 100px; padding: 6px 18px; font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 22px; color: var(--highlight); }
-    .hero h1 { font-family: var(--font-heading); font-size: clamp(30px, 5vw, 48px); font-weight: 800; line-height: 1.15; max-width: 720px; margin: 0 auto 16px; letter-spacing: -0.02em; }
-    .hero-sub { font-size: 18px; color: var(--on-dark-mid); max-width: 620px; margin: 0 auto 36px; font-weight: 400; line-height: 1.6; }
-    .hero-meta { display: flex; align-items: center; justify-content: center; gap: 32px; flex-wrap: wrap; }
-    .hero-meta-item { display: flex; align-items: center; gap: 8px; color: var(--on-dark-mid); font-size: 13px; font-weight: 500; }
-    .hero-meta-item svg { width: 16px; height: 16px; }
-    .hero-meta-item strong { color: white; }
+    /* ── Hero ── */
+    .hero-top-bar { background: linear-gradient(90deg, var(--primary), var(--accent-light)); height: 4px; width: 100%; }
+    .hero { background: linear-gradient(155deg, var(--dark) 0%, var(--primary-deeper) 50%, var(--primary-dark) 100%); color: var(--white); padding: 72px 60px 64px; position: relative; overflow: hidden; }
+    .hero::before { content: ''; position: absolute; top: -40%; right: -15%; width: 700px; height: 700px; background: radial-gradient(circle, #c9c0b412 0%, transparent 70%); border-radius: 50%; pointer-events: none; }
+    .hero::after { content: ''; position: absolute; bottom: -30%; left: -10%; width: 500px; height: 500px; background: radial-gradient(circle, #c17b4e0d 0%, transparent 70%); border-radius: 50%; pointer-events: none; }
+    .hero-inner { max-width: 1100px; margin: 0 auto; position: relative; z-index: 2; }
+    .hero-brand { display: flex; align-items: center; gap: 16px; margin-bottom: 48px; }
+    .hero-brand .logo-img { height: 32px; width: auto; filter: brightness(0) invert(1); }
+    .hero-brand .logo-sep { width: 1px; height: 24px; background: rgba(255,255,255,0.25); }
+    .hero-brand .logo-sub { font-family: var(--font-meta); font-size: 12px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: rgba(255,255,255,0.5); }
+    .hero-eyebrow { display: inline-block; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); border-radius: 100px; padding: 6px 18px; font-family: var(--font-meta); font-size: 11px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 24px; color: var(--highlight); }
+    .hero h1 { font-family: var(--font-heading); font-size: 50px; font-weight: 400; line-height: 1.15; max-width: 720px; margin-bottom: 16px; letter-spacing: -0.02em; }
+    .hero h1 strong { font-weight: 700; }
+    .hero-sub { font-size: 17px; color: rgba(255,255,255,0.55); max-width: 660px; font-weight: 400; line-height: 1.7; margin-bottom: 44px; }
+    .hero-meta { display: flex; gap: 40px; flex-wrap: wrap; }
+    .hero-meta-item { display: flex; flex-direction: column; gap: 4px; }
+    .hero-meta-label { font-family: var(--font-meta); font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px; color: #c17b4ee6; }
+    .hero-meta-value { font-size: 14px; font-weight: 500; color: rgba(255,255,255,0.75); }
 
-    .intro-note { max-width: 900px; margin: -32px auto 0; padding: 0 24px; position: relative; z-index: 10; }
-    .intro-card { background: var(--bg-card); border-radius: var(--radius); padding: 28px 32px; box-shadow: var(--shadow-md); border-left: 4px solid var(--primary); font-size: 15px; color: var(--text-mid); line-height: 1.7; }
-    .intro-card p { margin-bottom: 10px; }
-    .intro-card p:last-child { margin-bottom: 0; }
+    /* ── Editorial / Intro ── */
+    .editorial { max-width: 780px; margin: 0 auto; padding: 80px 40px; }
+    .editorial-label { font-family: var(--font-meta); font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px; color: var(--primary); margin-bottom: 20px; }
+    .editorial-text { font-size: 17px; line-height: 1.85; color: var(--text-mid); }
+    .editorial-text p { margin-bottom: 16px; }
+    .editorial-text p:last-child { margin-bottom: 0; }
+    .editorial-divider { width: 48px; height: 3px; background: var(--primary); border-radius: 2px; margin-top: 32px; }
 
-    .batch-info { text-align: center; margin: 32px 0 8px; }
-    .batch-pill { display: inline-flex; align-items: center; gap: 10px; background: var(--bg-card); border: 1px solid var(--border); border-radius: 100px; padding: 8px 20px; font-size: 13px; color: var(--text-light); }
-    .batch-num { font-weight: 700; color: var(--primary); }
+    /* ── Candidates section ── */
+    .candidates-section { background: var(--bg-light); padding: 80px 0; }
+    .candidates-header { text-align: center; padding: 0 24px 48px; }
+    .candidates-header h2 { font-family: var(--font-heading); font-size: 32px; font-weight: 700; color: var(--text-primary); margin-bottom: 8px; }
+    .candidates-header p { font-family: var(--font-meta); font-size: 14px; color: var(--text-light); }
 
-    .batch-switcher { display: flex; justify-content: center; align-items: center; gap: 8px; margin: 8px auto 36px; max-width: 800px; padding: 0 24px; }
+    .batch-switcher { display: flex; justify-content: center; align-items: center; gap: 8px; margin: 0 auto 40px; max-width: 800px; padding: 0 24px; }
     .batch-switcher[data-count="1"] { display: none; }
-    .batch-btn { display: flex; align-items: center; gap: 8px; padding: 11px 22px; border: 2px solid var(--border); border-radius: 10px; background: var(--bg-card); font-family: var(--font-body); font-size: 14px; font-weight: 600; color: var(--text-light); cursor: pointer; transition: all 0.2s ease; }
+    .batch-btn { display: flex; align-items: center; gap: 8px; padding: 11px 22px; border: 2px solid var(--border); border-radius: 10px; background: var(--bg-card); font-family: var(--font-meta); font-size: 13px; font-weight: 600; color: var(--text-light); cursor: pointer; transition: all 0.2s ease; }
     .batch-btn:hover { border-color: var(--primary); color: var(--text-primary); }
     .batch-btn.active { background: var(--primary); border-color: var(--primary); color: #fff; }
     .batch-count { display: inline-flex; align-items: center; justify-content: center; width: 22px; height: 22px; border-radius: 50%; background: var(--primary); color: white; font-size: 11px; font-weight: 700; }
     .batch-btn.active .batch-count { background: var(--highlight); color: var(--dark); }
     .batch-panel.hidden { display: none; }
 
-    .section-label { text-align: center; padding: 24px 24px 28px; }
-    .section-label h2 { font-family: var(--font-heading); font-size: 26px; font-weight: 800; color: var(--text-primary); margin-bottom: 6px; }
-    .section-label p { font-size: 15px; color: var(--text-light); }
-
     .candidates { max-width: 900px; margin: 0 auto; padding: 0 24px 40px; display: flex; flex-direction: column; gap: 24px; }
 
+    /* ── Card design ── */
     .candidate-card { max-width: 1100px; margin: 0 auto 40px; padding: 0 40px; }
-    .card { background: var(--bg-card); border-radius: 16px; overflow: hidden; border: 1px solid var(--border); box-shadow: var(--shadow-md); transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease; }
-    .card:hover { transform: translateY(-2px); box-shadow: 0 8px 40px rgba(0,0,0,0.4); border-color: #c17b4e33; }
-    .card.featured { border-color: #c17b4e55; box-shadow: 0 4px 32px #c17b4e1a; }
-    .card-top { background: var(--dark); padding: 36px 44px; display: flex; justify-content: space-between; align-items: flex-start; border-bottom: 1px solid var(--border); }
+    .card { background: var(--bg-card); border-radius: 16px; overflow: hidden; border: none; box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 8px 28px rgba(0,0,0,0.06); transition: transform 0.3s ease, box-shadow 0.3s ease; }
+    .card:hover { transform: translateY(-2px); box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 16px 48px rgba(0,0,0,0.1); }
+    .card.featured { box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 8px 28px rgba(0,0,0,0.06), 0 0 0 1px #c17b4e33; }
+    .card-top { background: var(--dark); padding: 36px 44px; display: flex; justify-content: space-between; align-items: flex-start; }
     .card-identity { display: flex; align-items: center; gap: 20px; }
-    .card-avatar { width: 60px; height: 60px; border-radius: 50%; background: #c17b4e26; border: 2px solid #c17b4e4d; display: flex; align-items: center; justify-content: center; font-size: 20px; font-weight: 700; color: var(--primary); flex-shrink: 0; font-family: var(--font-heading); }
-    .card-avatar.featured-avatar { background: var(--primary); border-color: var(--primary); color: var(--dark); }
-    .card-name { font-family: var(--font-heading); font-size: 24px; font-weight: 700; color: var(--on-dark); margin-bottom: 4px; }
+    .card-avatar { width: 56px; height: 56px; border-radius: 50%; background: var(--primary); border: none; display: flex; align-items: center; justify-content: center; font-size: 18px; font-weight: 700; color: white; flex-shrink: 0; font-family: var(--font-heading); }
+    .card-avatar.featured-avatar { background: var(--highlight); color: var(--dark); }
+    .card-name { font-family: var(--font-heading); font-size: 22px; font-weight: 700; color: white; margin-bottom: 4px; }
     .card-location { font-size: 14px; color: var(--on-dark-mid); display: flex; align-items: center; gap: 6px; }
     .card-badges { display: flex; gap: 8px; margin-top: 8px; flex-wrap: wrap; }
-    .badge { font-size: 10px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; padding: 4px 10px; border-radius: 100px; }
+    .badge { font-family: var(--font-meta); font-size: 10px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; padding: 4px 10px; border-radius: 100px; }
     .badge-shortlisted { background: #c17b4e33; color: var(--primary); border: 1px solid #c17b4e66; }
     .card-rate { text-align: right; }
     .card-rate-amount { font-size: 24px; font-weight: 700; color: var(--primary); font-family: var(--font-heading); }
-    .card-rate-period { font-size: 11px; color: var(--on-dark-mid); text-transform: uppercase; letter-spacing: 1px; }
-    .tap-badge { display: inline-flex; align-items: center; gap: 5px; background: linear-gradient(135deg, #f59e0b, #d97706); color: white; padding: 4px 10px; border-radius: 6px; font-size: 11px; font-weight: 700; letter-spacing: 0.04em; }
+    .card-rate-period { font-family: var(--font-meta); font-size: 10px; color: var(--on-dark-mid); text-transform: uppercase; letter-spacing: 1px; }
+    .tap-badge { display: inline-flex; align-items: center; gap: 5px; background: linear-gradient(135deg, #f59e0b, #d97706); color: white; padding: 4px 10px; border-radius: 6px; font-family: var(--font-meta); font-size: 11px; font-weight: 700; letter-spacing: 0.04em; }
 
     .tags-row { padding: 0 44px 16px; display: flex; flex-wrap: wrap; gap: 6px; }
-    .tag { display: inline-block; padding: 5px 14px; border-radius: 100px; font-size: 12px; font-weight: 600; }
+    .tag { display: inline-block; padding: 5px 14px; border-radius: 100px; font-family: var(--font-meta); font-size: 11px; font-weight: 600; }
     .tag-filled { background: var(--tag-bg); color: var(--tag-color); }
     .tag-filled:nth-child(3) { background: var(--highlight); color: var(--dark); }
     .tag-outlined { background: var(--bg-subtle); color: var(--text-mid); border: 1.5px solid var(--border-strong); }
 
     .card-body { padding: 40px 44px; color: var(--text-mid); }
     .card-section { margin-bottom: 0; }
-    .card-section-title { font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--primary); margin-bottom: 16px; margin-top: 32px; font-family: var(--font-heading); }
+    .card-section-title { font-family: var(--font-meta); font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--primary); margin-bottom: 16px; margin-top: 32px; }
     .card-section-title:first-of-type { margin-top: 0; }
     .card-narrative { font-size: 16px; line-height: 1.85; color: var(--text-mid); margin-bottom: 32px; font-style: italic; border-left: 3px solid var(--primary); padding-left: 20px; }
     .card-narrative strong { color: var(--text-primary); font-weight: 600; font-style: normal; }
-    .experience-list { display: flex; flex-direction: column; gap: 14px; }
     .experience-list { display: flex; flex-direction: column; gap: 20px; }
     .exp-item { display: flex; gap: 16px; align-items: flex-start; }
     .exp-dot-col { display: flex; flex-direction: column; align-items: center; padding-top: 6px; }
@@ -125,18 +137,18 @@
     .exp-company { font-size: 13px; color: var(--text-light); margin-top: 2px; }
     .exp-highlight { font-size: 13px; color: var(--primary); margin-top: 4px; }
     .tags-cluster { display: flex; flex-wrap: wrap; gap: 8px; }
-    .ctag { font-size: 12px; padding: 6px 14px; border-radius: 6px; background: var(--bg-subtle); color: var(--text-mid); }
+    .ctag { font-family: var(--font-meta); font-size: 11px; padding: 6px 14px; border-radius: 6px; background: var(--bg-subtle); color: var(--text-mid); }
     .ctag-key { background: #c17b4e1a; color: var(--primary); font-weight: 600; }
     .fit-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
     .fit-item { background: var(--bg-subtle); padding: 14px 16px; border-radius: 8px; border: 1px solid var(--border-strong); overflow: visible; word-wrap: break-word; }
     .fit-label { font-size: 12px; color: var(--text-mid); line-height: 1.5; display: block; overflow: visible; white-space: normal; }
     .strength-bars { display: grid; grid-template-columns: 1fr 1fr; gap: 14px 24px; }
     .bar-item { display: flex; flex-direction: column; gap: 6px; }
-    .bar-label { font-size: 13px; color: var(--text-mid); }
+    .bar-label { font-family: var(--font-meta); font-size: 12px; color: var(--text-mid); }
     .bar-track { height: 5px; background: var(--bg-subtle); border-radius: 3px; overflow: hidden; }
-    .bar-fill { height: 100%; background: linear-gradient(90deg, var(--primary), var(--highlight)); border-radius: 3px; transition: width 1.5s ease; }
+    .bar-fill { height: 100%; background: linear-gradient(90deg, var(--primary-dark), var(--primary)); border-radius: 3px; transition: width 1.5s ease; }
     .card-actions { margin-top: 28px; padding-top: 24px; border-top: 1px solid var(--border); display: flex; align-items: center; gap: 14px; }
-    .video-intro-btn { display: inline-flex; align-items: center; gap: 8px; padding: 10px 22px; background: transparent; border: 1.5px solid var(--primary); border-radius: 6px; color: var(--primary); font-size: 13px; font-weight: 600; letter-spacing: 0.3px; text-decoration: none; transition: background 0.2s ease, color 0.2s ease, transform 0.15s ease; }
+    .video-intro-btn { display: inline-flex; align-items: center; gap: 8px; padding: 10px 22px; background: transparent; border: 1.5px solid var(--primary); border-radius: 6px; color: var(--primary); font-family: var(--font-meta); font-size: 13px; font-weight: 600; letter-spacing: 0.3px; text-decoration: none; transition: background 0.2s ease, color 0.2s ease, transform 0.15s ease; }
     .video-intro-btn:hover { background: var(--primary); color: #fff; transform: translateY(-1px); }
 
     .experience-item { display: flex; justify-content: space-between; align-items: baseline; padding: 6px 0; border-bottom: 1px solid var(--border); }
@@ -149,7 +161,7 @@
     .footer-note { font-size: 13px; color: var(--text-light); }
     .footer-note strong { color: var(--text-primary); }
     .btn-group { display: flex; gap: 8px; }
-    .btn-card { display: inline-flex; align-items: center; gap: 6px; padding: 9px 18px; border-radius: 8px; font-family: var(--font-heading); font-size: 13px; font-weight: 600; text-decoration: none; transition: all 0.15s; cursor: pointer; }
+    .btn-card { display: inline-flex; align-items: center; gap: 6px; padding: 9px 18px; border-radius: 8px; font-family: var(--font-meta); font-size: 13px; font-weight: 600; text-decoration: none; transition: all 0.15s; cursor: pointer; }
     .btn-outline { background: var(--bg-card); color: var(--primary); border: 1.5px solid var(--primary); }
     .btn-outline:hover { background: var(--tag-bg); }
     .btn-primary-card { background: var(--primary); color: white; border: 1.5px solid var(--primary); }
@@ -157,14 +169,15 @@
     .btn-card svg { width: 15px; height: 15px; }
     .btn-tap { background: linear-gradient(135deg, #f59e0b, #d97706); color: white; border: none; }
 
-    .card-recruiter-note { margin: 0; padding: 16px 20px; }
-    .card-recruiter-note .recruiter-note-title { font-family: var(--font-heading); font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--primary); margin-bottom: 8px; }
+    .card-recruiter-note { margin: 0; padding: 20px 24px; background: linear-gradient(135deg, #c17b4e0d, #c17b4e05); border-left: 3px solid var(--primary); border-radius: 0 10px 10px 0; }
+    .card-recruiter-note .recruiter-note-title { font-family: var(--font-meta); font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; color: var(--primary); margin-bottom: 8px; }
     .card-recruiter-note p { font-size: 14px; color: var(--text-mid); line-height: 1.7; }
 
+    /* ── Comparison table ── */
     .comparison-section { max-width: 1100px; margin: 20px auto 40px; padding: 0 40px; }
-    .comparison-table-wrap { overflow-x: auto; border-radius: var(--radius); box-shadow: var(--shadow-sm); }
+    .comparison-table-wrap { overflow-x: auto; border-radius: var(--radius); box-shadow: var(--shadow-md); }
     .comparison-table { width: 100%; border-collapse: collapse; background: var(--bg-card); font-size: 13px; color: var(--text-mid); border-radius: 12px; overflow: hidden; }
-    .comparison-table thead th { background: var(--dark); color: var(--primary); padding: 14px 16px; text-align: left; font-weight: 600; font-size: 12px; text-transform: uppercase; letter-spacing: 0.05em; }
+    .comparison-table thead th { background: var(--dark); color: var(--primary); padding: 14px 16px; text-align: left; font-family: var(--font-meta); font-weight: 600; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; }
     .comparison-table thead th:first-child { border-radius: 14px 0 0 0; }
     .comparison-table thead th:last-child { border-radius: 0 14px 0 0; }
     .comparison-table tbody td { padding: 12px 16px; border-bottom: 1px solid var(--border); }
@@ -172,1261 +185,122 @@
     .comparison-table tbody tr:hover { background: var(--bg-card-hover); }
     .comparison-table .highlight-cell { background: #c17b4e1a; font-weight: 600; color: var(--primary); }
 
-    .advisor-section { max-width: 1100px; margin: 0 auto 40px; padding: 0 40px; }
-    .advisor-card { display: flex; gap: 24px; background: var(--bg-card); border-radius: 16px; padding: 28px; box-shadow: var(--shadow-md); border: 1px solid var(--border); }
+    /* ── Advisor ── */
+    .advisor-section { max-width: 780px; margin: 0 auto; padding: 80px 40px 40px; }
+    .advisor-section-label { font-family: var(--font-meta); font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px; color: var(--primary); margin-bottom: 20px; text-align: center; }
+    .advisor-card { display: flex; gap: 28px; background: var(--bg-card); border-radius: 16px; padding: 36px; box-shadow: var(--shadow-md); border: 1px solid var(--border); }
     .advisor-avatar { width: 80px; height: 80px; border-radius: 50%; object-fit: cover; border: 3px solid var(--primary); flex-shrink: 0; }
     .advisor-info { flex: 1; }
-    .advisor-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--primary); margin-bottom: 4px; }
-    .advisor-name { font-family: var(--font-heading); font-size: 20px; font-weight: 800; color: var(--text-primary); }
-    .advisor-role { font-size: 13px; color: var(--text-light); margin-bottom: 10px; }
-    .advisor-summary { font-size: 14px; color: var(--text-mid); line-height: 1.7; }
+    .advisor-label { font-family: var(--font-meta); font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; color: var(--primary); margin-bottom: 4px; }
+    .advisor-name { font-family: var(--font-heading); font-size: 22px; font-weight: 700; color: var(--text-primary); }
+    .advisor-role { font-family: var(--font-meta); font-size: 13px; color: var(--text-light); margin-bottom: 12px; }
+    .advisor-summary { font-size: 14px; color: var(--text-mid); line-height: 1.75; }
 
-    .site-footer { text-align: center; padding: 32px; color: var(--on-dark-light); font-size: 13px; border-top: 1px solid var(--on-dark-muted); background: var(--dark); }
+    /* ── Sagan info block ── */
+    .sagan-info { max-width: 780px; margin: 0 auto; padding: 0 40px 60px; }
+    .sagan-info-inner { display: flex; gap: 32px; justify-content: center; padding: 32px 0; border-top: 1px solid var(--border); }
+    .sagan-stat { text-align: center; }
+    .sagan-stat-number { font-family: var(--font-heading); font-size: 28px; font-weight: 700; color: var(--primary); }
+    .sagan-stat-label { font-family: var(--font-meta); font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; color: var(--text-light); margin-top: 4px; }
+
+    /* ── Footer CTA ── */
+    .footer-cta { background: var(--dark); padding: 72px 40px; text-align: center; }
+    .footer-cta h2 { font-family: var(--font-heading); font-size: 32px; font-weight: 400; color: white; margin-bottom: 12px; }
+    .footer-cta h2 strong { font-weight: 700; }
+    .footer-cta p { font-size: 16px; color: rgba(255,255,255,0.5); margin-bottom: 32px; max-width: 480px; margin-left: auto; margin-right: auto; }
+    .footer-contact { display: inline-block; padding: 14px 36px; background: var(--primary); color: white; border-radius: 8px; font-family: var(--font-meta); font-size: 14px; font-weight: 600; text-decoration: none; letter-spacing: 0.3px; transition: background 0.2s ease, transform 0.15s ease; }
+    .footer-contact:hover { background: var(--primary-dark); transform: translateY(-1px); }
+
+    /* ── Footer ── */
+    .site-footer { text-align: center; padding: 32px; color: rgba(255,255,255,0.4); font-family: var(--font-meta); font-size: 12px; background: var(--dark); border-top: 1px solid rgba(255,255,255,0.08); }
     .footer-logos { display: flex; align-items: center; justify-content: center; gap: 16px; margin-bottom: 12px; }
-    .footer-logos img { height: 24px; opacity: 0.6; }
-    .footer-x { font-size: 18px; color: var(--border); }
+    .footer-logos img { height: 22px; opacity: 0.5; }
+    .footer-x { font-size: 16px; color: rgba(255,255,255,0.2); }
     .site-footer a { color: var(--primary); text-decoration: none; }
 
     @media (max-width: 768px) {
-      .hero { padding: 48px 20px 40px; }
+      .hero { padding: 48px 24px 48px; }
+      .hero h1 { font-size: 32px; }
+      .hero-meta { gap: 24px; }
       .card-top { flex-direction: column; padding: 24px; gap: 16px; }
       .card-body { padding: 24px; }
       .candidate-card { padding: 0 16px; }
+      .editorial { padding: 48px 24px; }
       .fit-grid { grid-template-columns: 1fr; }
       .strength-bars { grid-template-columns: 1fr; }
       .advisor-card { flex-direction: column; text-align: center; }
       .comparison-table { font-size: 11px; }
+      .sagan-info-inner { flex-direction: column; gap: 20px; }
+      .footer-cta { padding: 48px 24px; }
+      .footer-cta h2 { font-size: 24px; }
     }
   </style>
-<style data-batch-switcher="1">.batch-switcher{display:flex;justify-content:center;align-items:center;gap:8px;margin:8px auto 36px;max-width:800px;padding:0 24px}.batch-switcher[data-count="1"]{display:none}.batch-btn{display:flex;align-items:center;gap:8px;padding:11px 22px;border:2px solid var(--border,#e2e8f0);border-radius:10px;background:white;font-size:14px;font-weight:600;color:#6b7280;cursor:pointer;transition:all .2s}.batch-btn:hover{border-color:var(--primary)}.batch-btn.active{background:var(--dark,#131a1b);border-color:var(--dark,#131a1b);color:white}.batch-count{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:50%;background:var(--primary);color:white;font-size:11px;font-weight:700}.batch-btn.active .batch-count{background:var(--highlight,#00f9b8);color:var(--dark,#131a1b)}.batch-panel.hidden{display:none}</style><style data-rt-card-css="1">.card-header{display:flex;align-items:flex-start;gap:16px;padding:24px 28px 16px}.rank-badge{width:36px;height:36px;background:var(--primary,#212529);color:white;border-radius:10px;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:15px;flex-shrink:0}.card-name-block .card-name{font-size:22px;font-weight:800}.card-meta-row{display:flex;gap:16px;margin-top:6px;flex-wrap:wrap}.card-meta-item{display:flex;align-items:center;gap:5px;font-size:13px;color:var(--text-light,#6b7280)}.card-meta-item svg{width:14px;height:14px}.card-meta-item strong{color:var(--text-dark,#1a1a2e)}.tags-row{padding:0 28px 16px;display:flex;flex-wrap:wrap;gap:6px}.tag{display:inline-block;padding:5px 14px;border-radius:100px;font-size:12px;font-weight:600}.tag-filled{background:var(--tag-bg,#e9e9ea);color:var(--tag-color,#1e2125)}.tag-outlined{background:transparent;color:var(--text-mid,#374151);border:1.5px solid #ddd}.card-body-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;border-top:1px solid #f0f0f0;padding-top:20px;margin:0 28px 20px}.card-section{margin-bottom:0}.exp-entry .exp-role{font-weight:700;font-size:14px;color:var(--text-dark,#1a1a2e)}.exp-entry .exp-company{font-size:13px;color:var(--primary,#212529);font-weight:500}.exp-entry .exp-dates{font-size:12px;color:var(--text-light,#6b7280);margin-top:2px}.strength-list{padding-left:18px}.strength-list li{font-size:14px;color:var(--text-mid,#374151);margin-bottom:8px;line-height:1.6}.card-footer{display:flex;align-items:center;justify-content:space-between;padding:16px 28px;background:#fafafa;border-top:1px solid #f0f0f0}.footer-note{font-size:13px;color:var(--text-light,#6b7280)}.footer-note strong{color:var(--text-dark,#1a1a2e)}.btn-group{display:flex;gap:8px}.btn-card{display:inline-flex;align-items:center;gap:6px;padding:9px 18px;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;transition:all .15s;cursor:pointer}.btn-outline{background:white;color:var(--primary,#212529);border:1.5px solid var(--primary,#212529)}.btn-outline:hover{background:var(--tag-bg,#e9e9ea)}.btn-primary-card{background:var(--primary,#212529);color:white;border:1.5px solid var(--primary,#212529)}.btn-primary-card:hover{background:var(--primary-dark,#1c1f23)}.btn-card svg{width:15px;height:15px}.card-recruiter-note{margin:0 28px 20px;padding:16px 20px;background:#f4f4f4;border-radius:10px;border-left:3px solid var(--primary,#212529)}.card-recruiter-note .recruiter-note-title{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--primary,#212529);margin-bottom:8px}.card-recruiter-note p{font-size:14px;color:var(--text-mid,#374151);line-height:1.7}@media(max-width:768px){.card-header{flex-direction:column}.card-body-grid{grid-template-columns:1fr}}</style></head>
+</head>
 <body>
 
-  <div class="site-header">
-    <div class="header-inner">
-      <a class="header-brand" href="https://lonestarmarkets.com/" target="_blank">
-        <img src="https://www.lonestarmarkets.com/assets/market_photos/victor.jpg" alt="Lone Star Markets" style="height:28px;">
-        <div class="header-divider"></div>
-        <span class="header-title">Lone Star Markets</span>
-      </a>
-      <div class="header-sagan">
-        <span>Powered by</span>
-        <img src="https://saganrecruitment.com/wp-content/uploads/2025/10/Sagan-Logo-2-e1759568299542.png" alt="Sagan" style="height:20px;">
-      </div>
-    </div>
-  </div>
-
+  <div class="hero-top-bar"></div>
   <section class="hero">
-    <div class="hero-eyebrow">Sagan Talent Search</div>
-    <h1>Account Executive Candidates</h1>
-    <p class="hero-sub">Curated talent for Lone Star Markets. Each candidate has been vetted and matched to your specific needs.</p>
-    <div class="hero-meta">
-      <div class="hero-meta-item">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
-        <strong>3</strong> Candidates
+    <div class="hero-inner">
+      <div class="hero-brand">
+        <img class="logo-img" src="https://www.lonestarmarkets.com/assets/market_photos/victor.jpg" alt="Lone Star Markets" />
+        <div class="logo-sep"></div>
+        <span class="logo-sub">Talent Selection</span>
       </div>
-      <div class="hero-meta-item">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
-        <strong>Batches 1-3</strong> · March 31, 2026
-      </div>
-      <div class="hero-meta-item">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
-        Advisor: <strong>Nadeia Campbell</strong>
+      <div class="hero-eyebrow">Sagan Talent Search</div>
+      <h1><strong>Account Executive</strong> Candidates for Lone Star Markets</h1>
+      <p class="hero-sub">Curated talent, vetted and matched to your specific needs. Each profile below has been carefully evaluated for role alignment, skills, and cultural fit.</p>
+      <div class="hero-meta">
+        <div class="hero-meta-item">
+          <span class="hero-meta-label">Candidates</span>
+          <span class="hero-meta-value">2 profiles</span>
+        </div>
+        <div class="hero-meta-item">
+          <span class="hero-meta-label">Batch</span>
+          <span class="hero-meta-value">1 &middot; June 12, 2026</span>
+        </div>
+        <div class="hero-meta-item">
+          <span class="hero-meta-label">Advisor</span>
+          <span class="hero-meta-value">Cami Poloche</span>
+        </div>
       </div>
     </div>
   </section>
 
   
-  <div class="intro-note">
-    <div class="intro-card">
-      <p>Welcome to your candidate presentation page. We know Lone Star Markets is growing incredibly fast opening over 30 new micro-markets in just the last few months.Because speed and top-tier quality are your biggest priorities right now, we’ve hit the ground running</p><p></p><p>Below, you’ll find our top candidate picks for your open Account Executive role. We've strictly screened them for the exceptional attention to detail, proactive startup mindset, and friendly, positive attitudes you need to keep your operations scaling smoothly.</p><p></p><p>Take a look, drop your feedback, and let’s get this crucial seat filled!</p>
+  <section class="editorial fade-in">
+    <div class="editorial-label">Our Selection Rationale</div>
+    <div class="editorial-text">
+      <p>Hi Charleze, I'm excited to share this first batch of Account Executive candidates, selected specifically because they possess the &quot;closer mentality&quot; needed to drive your U.S. expansion.</p><p>I focused heavily on finding self-starters who have real experience selling to U.S. clients and maintaining flawless CRM data hygiene, ensuring they can seamlessly manage your warm inbound leads.</p><p>Whenever you have a moment, please take a look through their profiles and let me know who you'd like to move forward into the interview process! Best Cami</p>
     </div>
-  </div>
+    <div class="editorial-divider"></div>
+  </section>
 
-  <div class="batch-info">
-    <div class="batch-pill">
-      <span class="batch-num">Batches 1-3</span>
-      March 31, 2026
+  <section class="candidates-section">
+    <div class="candidates-header fade-in">
+      <h2>Candidate Profiles</h2>
+      <p>Each candidate has been carefully selected and evaluated for this role.</p>
     </div>
-  </div>
 
-  <div class="section-label">
-    <h2>Candidate Profiles</h2>
-    <p>Each candidate has been carefully selected and evaluated for this role.</p>
-  </div>
+    <div class="batch-switcher" id="batch-switcher" data-count="1">
+      <button class="batch-btn active" onclick="showBatch(1)" data-batch="1">
+        <span>Batch 1</span>
+        <span class="batch-count">2</span>
+      </button>
+    </div>
 
-  <div class="batch-switcher" id="batch-switcher" data-count="3">
-    <button class="batch-btn active" onclick="showBatch(1)" data-batch="1">
-      <span>Batch 1</span>
-      <span class="batch-count">3</span>
-    </button>
-  <button class="batch-btn" onclick="showBatch(2)" data-batch="2"><span>Batch 2</span><span class="batch-count">6</span></button><button class="batch-btn" onclick="showBatch(3)" data-batch="3"><span>Batch 3</span><span class="batch-count">2</span></button></div><div id="batch-3" class="batch-panel hidden">
-    <div class="candidates">
-      
-    <div class="candidate-card">
-      <div class="card" id="candidate-9">
-        <div class="card-top">
-          <div class="card-identity">
-            <div class="card-avatar">ML</div>
-            <div>
-              <div class="card-name">Morgan Lengolo</div>
-              <div class="card-location">
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-                South Africa · 6 yrs Enterprise Sales
-              </div>
-              <div class="card-badges">
-                
-                
-              </div>
-            </div>
-          </div>
-          <div class="card-rate">
-            <div class="card-rate-amount">$3,000/mo</div>
-            <div class="card-rate-period">USD / Month</div>
-          </div>
-        </div>
-
-        <div class="card-body">
-          
-          <div class="card-narrative">
-            Morgan is the heavyweight pick in this batch. Enterprise sales DNA across blue-chip companies. Currently managing account growth at NielsenIQ, which mirrors exactly what Lone Star needs. The founder experience means he thinks like an owner.
-          </div>
-
-          
-          <div class="card-section-title">Experience Highlights</div>
-          <div class="experience-list">
-            
-            <div class="exp-item">
-              <div class="exp-dot-col">
-                <div class="exp-dot"></div>
-                <div class="exp-line"></div>
-              </div>
-              <div class="exp-content">
-                <div class="exp-role">Business Development Lead | Enterprise Account Executive</div>
-                <div class="exp-company">Roundtable Strategy Advisors · October 2025 - Present (6 months)</div>
-                <div class="exp-highlight">●Spearhead client acquisition and growth initiatives across EMEA markets.</div>
-              </div>
-            </div>
-            <div class="exp-item">
-              <div class="exp-dot-col">
-                <div class="exp-dot"></div>
-                <div class="exp-line"></div>
-              </div>
-              <div class="exp-content">
-                <div class="exp-role">Senior Manager, Account Development •CS Product Specialists: RMS</div>
-                <div class="exp-company">NielsenIQ · May 2024 - October 2025 (1 year 6 months)</div>
-                <div class="exp-highlight">●Drive sales and renewals for existing accounts for own scope securing pipeline, new revenue opportunities and an accurate forecasting while maintaining customer relationships.</div>
-              </div>
-            </div>
-            <div class="exp-item">
-              <div class="exp-dot-col">
-                <div class="exp-dot"></div>
-                <div class="exp-line"></div>
-              </div>
-              <div class="exp-content">
-                <div class="exp-role">Account Executive</div>
-                <div class="exp-company">Connex One · May 2021 - May 2024 (3 years 1 month)</div>
-                <div class="exp-highlight">●Strategic Prospecting: Identify and engage high-value enterprise clients, leveraging market research and targeted outreach to generate new business opportunities.</div>
-              </div>
-            </div>
-            <div class="exp-item">
-              <div class="exp-dot-col">
-                <div class="exp-dot"></div>
-                
-              </div>
-              <div class="exp-content">
-                <div class="exp-role">Account Manager</div>
-                <div class="exp-company">Stone Roots · July 2019 - May 2021 (1 year 11 months)</div>
-                <div class="exp-highlight">●Client Relationship Management: responsible for building and maintaining strong relationships with clients.</div>
-              </div>
-            </div>
-          </div>
-
-          
-          <div class="card-section-title">Platforms &amp; Tools</div>
-          <div class="tags-cluster">
-            <span class="ctag ctag-key">Enterprise Sales</span><span class="ctag ctag-key">Account Management</span><span class="ctag ctag-key">Strategic Partnerships</span><span class="ctag ctag-key">Cold Calling</span><span class="ctag ctag-key">Pipeline Management</span>
-            <span class="ctag">International Markets</span>
-          </div>
-
-          
-          <div class="card-section-title">Lone Star Markets Fit Indicators</div>
-          <div class="fit-grid">
-            
-            <div class="fit-item">
-              <div class="fit-label">Currently drives renewals and new revenue at NielsenIQ → Lone Star needs 8-10 new agreements monthly</div>
-            </div>
-            <div class="fit-item">
-              <div class="fit-label">Full sales cycle from prospecting to closure → Matches Lone Star's outbound constraints perfectly</div>
-            </div>
-            <div class="fit-item">
-              <div class="fit-label">Co-founder experience → Understands property managers' perspective on amenity decisions</div>
-            </div>
-          </div>
-
-          
-          <div class="card-section-title">Strength Profile</div>
-          <div class="strength-bars">
-            
-            <div class="bar-item">
-              <div class="bar-label">Enterprise Sales</div>
-              <div class="bar-track"><div class="bar-fill" style="width:88%"></div></div>
-            </div>
-            <div class="bar-item">
-              <div class="bar-label">Account Management</div>
-              <div class="bar-track"><div class="bar-fill" style="width:92%"></div></div>
-            </div>
-            <div class="bar-item">
-              <div class="bar-label">Cold Calling</div>
-              <div class="bar-track"><div class="bar-fill" style="width:85%"></div></div>
-            </div>
-            <div class="bar-item">
-              <div class="bar-label">Pipeline Management</div>
-              <div class="bar-track"><div class="bar-fill" style="width:90%"></div></div>
-            </div>
-            <div class="bar-item">
-              <div class="bar-label">Strategic Partnerships</div>
-              <div class="bar-track"><div class="bar-fill" style="width:95%"></div></div>
-            </div>
-            <div class="bar-item">
-              <div class="bar-label">Property/Real Estate Knowledge</div>
-              <div class="bar-track"><div class="bar-fill" style="width:65%"></div></div>
-            </div>
-          </div>
-
-          <div class="card-actions">
-            <a class="video-intro-btn" href="https://candidate-video.com/uploads/ba93b65d-7457-4f01-b8d7-f13329d30df4" target="_blank"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>Watch Intro Video</a>
-            
-            
-          </div>
-        </div>
-
+    <div id="batch-1" class="batch-panel">
+      <div class="candidates">
         
-        <div class="card-footer">
-          <div class="card-recruiter-note">
-            <div class="recruiter-note-title">Recruiter Note</div>
-            <p>Morgan brings genuine enterprise sales horsepower that's rare at this price point. His current role at NielsenIQ is basically the Lone Star job description: driving renewals, finding new revenue opportunities, managing account plans. The 3-year run at Connex One shows he can stick and deliver. His co-founder experience is the secret sauce here. He's been on the other side of the table, so he understands the property manager's perspective when evaluating new amenities. At $3000/month, you're getting someone who could easily command twice that in the US market.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="candidate-card">
-      <div class="card" id="candidate-10">
-        <div class="card-top">
-          <div class="card-identity">
-            <div class="card-avatar">ZM</div>
-            <div>
-              <div class="card-name">Zanele Mpele</div>
-              <div class="card-location">
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-                South Africa · 10 yrs Sales Development
-              </div>
-              <div class="card-badges">
-                
-                
-              </div>
-            </div>
-          </div>
-          <div class="card-rate">
-            <div class="card-rate-amount">$2,500/mo</div>
-            <div class="card-rate-period">USD / Month</div>
-          </div>
-        </div>
-
-        <div class="card-body">
-          
-          <div class="card-narrative">
-            Zanele is the scrappy pick in this batch. A decade in the SDR trenches means she knows how to find prospects and get them to say yes. The Cartrack team lead experience shows she can scale beyond just personal production.
-          </div>
-
-          
-          <div class="card-section-title">Experience Highlights</div>
-          <div class="experience-list">
-            
-            <div class="exp-item">
-              <div class="exp-dot-col">
-                <div class="exp-dot"></div>
-                <div class="exp-line"></div>
-              </div>
-              <div class="exp-content">
-                <div class="exp-role">Sales Developement Rep</div>
-                <div class="exp-company">Optamark · MAY 2025 - OCT 2025</div>
-                <div class="exp-highlight">Qualify prospects</div>
-              </div>
-            </div>
-            <div class="exp-item">
-              <div class="exp-dot-col">
-                <div class="exp-dot"></div>
-                <div class="exp-line"></div>
-              </div>
-              <div class="exp-content">
-                <div class="exp-role">Sales Developement Rep</div>
-                <div class="exp-company">MSA Outsourcing Solutions · Aug 2021 - April 2025</div>
-                <div class="exp-highlight">Cold Calling</div>
-              </div>
-            </div>
-            <div class="exp-item">
-              <div class="exp-dot-col">
-                <div class="exp-dot"></div>
-                <div class="exp-line"></div>
-              </div>
-              <div class="exp-content">
-                <div class="exp-role">Team Lead Customer Care</div>
-                <div class="exp-company">Cartrack · Sep 2017 - Dec 2020</div>
-                <div class="exp-highlight">Manage the operation and administration</div>
-              </div>
-            </div>
-            <div class="exp-item">
-              <div class="exp-dot-col">
-                <div class="exp-dot"></div>
-                
-              </div>
-              <div class="exp-content">
-                <div class="exp-role">Sales Developmetn rep</div>
-                <div class="exp-company">Conduent · May 2015 - Sep 2017</div>
-                <div class="exp-highlight">Processing orders and transactions</div>
-              </div>
-            </div>
-          </div>
-
-          
-          <div class="card-section-title">Platforms &amp; Tools</div>
-          <div class="tags-cluster">
-            <span class="ctag ctag-key">Cold Calling</span><span class="ctag ctag-key">HubSpot</span><span class="ctag ctag-key">Zendesk</span><span class="ctag ctag-key">Lead Generation</span><span class="ctag ctag-key">Team Leadership</span>
-            <span class="ctag">Customer Retention</span>
-          </div>
-
-          
-          <div class="card-section-title">Lone Star Markets Fit Indicators</div>
-          <div class="fit-grid">
-            
-            <div class="fit-item">
-              <div class="fit-label">10 years SDR experience with appointment setting → Directly solves Lone Star's top-of-funnel constraints</div>
-            </div>
-            <div class="fit-item">
-              <div class="fit-label">HubSpot + Zendesk proficiency → Zero ramp-up on current tech stack</div>
-            </div>
-            <div class="fit-item">
-              <div class="fit-label">Team leadership at Cartrack → Can scale beyond individual contributor as company doubles again</div>
-            </div>
-          </div>
-
-          
-          <div class="card-section-title">Strength Profile</div>
-          <div class="strength-bars">
-            
-            <div class="bar-item">
-              <div class="bar-label">Cold Calling</div>
-              <div class="bar-track"><div class="bar-fill" style="width:95%"></div></div>
-            </div>
-            <div class="bar-item">
-              <div class="bar-label">Lead Generation</div>
-              <div class="bar-track"><div class="bar-fill" style="width:90%"></div></div>
-            </div>
-            <div class="bar-item">
-              <div class="bar-label">CRM Management</div>
-              <div class="bar-track"><div class="bar-fill" style="width:88%"></div></div>
-            </div>
-            <div class="bar-item">
-              <div class="bar-label">Appointment Setting</div>
-              <div class="bar-track"><div class="bar-fill" style="width:92%"></div></div>
-            </div>
-            <div class="bar-item">
-              <div class="bar-label">Team Leadership</div>
-              <div class="bar-track"><div class="bar-fill" style="width:82%"></div></div>
-            </div>
-            <div class="bar-item">
-              <div class="bar-label">Customer Retention</div>
-              <div class="bar-track"><div class="bar-fill" style="width:85%"></div></div>
-            </div>
-          </div>
-
-          <div class="card-actions">
-            <a class="video-intro-btn" href="https://www.loom.com/share/b6b06b5d335d4556a99325a0756d41f5" target="_blank"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>Watch Intro Video</a>
-            
-            
-          </div>
-        </div>
-
-        
-        <div class="card-footer">
-          <div class="card-recruiter-note">
-            <div class="recruiter-note-title">Recruiter Note</div>
-            <p>Zanele brings exactly what Lone Star's sales funnel needs right now. She's not theory, she's practice. 10 years of cold calling, lead generation, and appointment setting across multiple industries. The 3-year team lead role at Cartrack proves she can think beyond her own numbers and build systems. HubSpot proficiency means zero learning curve on their CRM. Her retention work at MSA shows she understands the full customer lifecycle, not just the handoff. At $2500/month, you're getting a proven sales operator who can immediately attack that 8-10 monthly agreement target while potentially training others as you scale.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-    </div>
-    
-  <div class="comparison-section">
-    <div class="section-label" style="padding-bottom:20px;">
-      <h2>Side-by-Side Comparison</h2>
-      <p>Key criteria at a glance to help you prioritize interviews.</p>
-    </div>
-    <div class="comparison-table-wrap">
-      <table class="comparison-table">
-        <thead>
-          <tr>
-            <th>Criteria</th>
-            <th>Morgan Lengolo</th><th>Zanele Mpele</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr><td><strong>Location</strong></td><td>South Africa</td><td>South Africa</td></tr>
-          <tr><td><strong>Experience</strong></td><td>6 yrs Enterprise Sales</td><td>10 yrs Sales Development</td></tr>
-          <tr><td><strong>Key Employers</strong></td><td>Roundtable Strategy Advisors, NielsenIQ, Connex One</td><td>Optamark, MSA Outsourcing Solutions, Cartrack</td></tr>
-          <tr><td><strong>Core Strength</strong></td><td>Enterprise Sales, Account Management, Strategic Partnerships</td><td>Cold Calling, HubSpot, Zendesk</td></tr>
-          <tr><td><strong>HRIS / Tools</strong></td><td>Enterprise Sales, Account Management, Strategic Partnerships, Cold Calling, Pipeline Management</td><td>Cold Calling, HubSpot, Zendesk, Lead Generation, Team Leadership</td></tr>
-          <tr><td><strong>Languages</strong></td><td>sestho, Zulu, English</td><td>English</td></tr>
-          <tr><td><strong>Education</strong></td><td>Professional Qualification , core banking and financial services (CornerStone performance Solutions); Banking and Financial Support Services (BANK SETA)</td><td>Grade 12 (SUNWARD PARK HIGH); General Management (BOSTON BUSINESS SCHOOL)</td></tr>
-          <tr><td><strong>Rate</strong></td><td>$3,000/mo</td><td class="highlight-cell">$2,500/mo</td></tr>
-          
-        </tbody>
-      </table>
-    </div>
-  </div>
-  </div><div id="batch-2" class="batch-panel hidden">
-    <div class="candidates">
-      
-    <div class="candidate-card">
-      <div class="card" id="candidate-3">
-        <div class="card-top">
-          <div class="card-identity">
-            <div class="card-avatar">BB</div>
-            <div>
-              <div class="card-name">Brenton B</div>
-              <div class="card-location">
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-                South Africa · 20+ yrs Sales/BD
-              </div>
-              <div class="card-badges">
-                
-                
-              </div>
-            </div>
-          </div>
-          <div class="card-rate">
-            <div class="card-rate-amount">$2,300/mo</div>
-            <div class="card-rate-period">USD / Month</div>
-          </div>
-        </div>
-
-        <div class="card-body">
-          
-          <div class="card-narrative">
-            Brenton brings genuine horsepower to your outbound efforts. He's doing exactly what you need right now: high-volume prospecting to feed Account Executives qualified meetings. The whole package at wallet-friendly pricing.
-          </div>
-
-          
-          <div class="card-section-title">Experience Highlights</div>
-          <div class="experience-list">
-            
-            <div class="exp-item">
-              <div class="exp-dot-col">
-                <div class="exp-dot"></div>
-                <div class="exp-line"></div>
-              </div>
-              <div class="exp-content">
-                <div class="exp-role">Business Development Consultant – Sage Campaign (TFG)</div>
-                <div class="exp-company">TFG · May 2025 – Present</div>
-                <div class="exp-highlight">Conduct high-volume outbound prospecting targeting finance leaders and decision-makers.</div>
-              </div>
-            </div>
-            <div class="exp-item">
-              <div class="exp-dot-col">
-                <div class="exp-dot"></div>
-                <div class="exp-line"></div>
-              </div>
-              <div class="exp-content">
-                <div class="exp-role">Insurance Team Leader – CCI (Swinton Insurance Campaign – UK)</div>
-                <div class="exp-company">CCI · April 2024 – April 2025</div>
-                <div class="exp-highlight">Managed and coached a team of 10 sales agents selling short-term insurance products in the UK market.</div>
-              </div>
-            </div>
-            <div class="exp-item">
-              <div class="exp-dot-col">
-                <div class="exp-dot"></div>
-                <div class="exp-line"></div>
-              </div>
-              <div class="exp-content">
-                <div class="exp-role">Sales Development Consultant</div>
-                <div class="exp-company">OneCall24 · September 2022 – March 2024</div>
-                <div class="exp-highlight">Managed and serviced 50+ healthcare facilities within the private healthcare sector.</div>
-              </div>
-            </div>
-            <div class="exp-item">
-              <div class="exp-dot-col">
-                <div class="exp-dot"></div>
-                
-              </div>
-              <div class="exp-content">
-                <div class="exp-role">Sales Consultant</div>
-                <div class="exp-company">Telesure Investment Holdings · March 2019 – January 2020</div>
-                <div class="exp-highlight">Sold life insurance products through the 1Life campaign to existing customers.</div>
-              </div>
-            </div>
-          </div>
-
-          
-          <div class="card-section-title">Platforms &amp; Tools</div>
-          <div class="tags-cluster">
-            <span class="ctag ctag-key">Outbound Prospecting</span><span class="ctag ctag-key">Cold Calling</span><span class="ctag ctag-key">B2B Sales</span><span class="ctag ctag-key">Lead Generation</span><span class="ctag ctag-key">Team Leadership</span>
-            <span class="ctag">CRM Systems</span>
-          </div>
-
-          
-          <div class="card-section-title">Lone Star Markets Fit Indicators</div>
-          <div class="fit-grid">
-            
-            <div class="fit-item">
-              <div class="fit-label">100+ daily calls + LinkedIn outreach → Solves your current 10 calls/week bottleneck immediately</div>
-            </div>
-            <div class="fit-item">
-              <div class="fit-label">8-10 qualified meetings monthly for AEs → Direct match to your 8-10 new agreements target</div>
-            </div>
-            <div class="fit-item">
-              <div class="fit-label">Healthcare sector B2B experience with 50+ accounts → Understands complex property manager sales cycles</div>
-            </div>
-          </div>
-
-          
-          <div class="card-section-title">Strength Profile</div>
-          <div class="strength-bars">
-            
-            <div class="bar-item">
-              <div class="bar-label">Outbound Prospecting</div>
-              <div class="bar-track"><div class="bar-fill" style="width:95%"></div></div>
-            </div>
-            <div class="bar-item">
-              <div class="bar-label">Cold Calling</div>
-              <div class="bar-track"><div class="bar-fill" style="width:92%"></div></div>
-            </div>
-            <div class="bar-item">
-              <div class="bar-label">B2B Sales</div>
-              <div class="bar-track"><div class="bar-fill" style="width:88%"></div></div>
-            </div>
-            <div class="bar-item">
-              <div class="bar-label">Lead Generation</div>
-              <div class="bar-track"><div class="bar-fill" style="width:90%"></div></div>
-            </div>
-            <div class="bar-item">
-              <div class="bar-label">CRM Systems</div>
-              <div class="bar-track"><div class="bar-fill" style="width:75%"></div></div>
-            </div>
-            <div class="bar-item">
-              <div class="bar-label">Team Leadership</div>
-              <div class="bar-track"><div class="bar-fill" style="width:85%"></div></div>
-            </div>
-          </div>
-
-          <div class="card-actions">
-            <a class="video-intro-btn" href="https://pub-320f624a298145c09bbf1003b5cf0a27.r2.dev/uploads/08dc62a6-b710-4a99-aa6d-fad0ca99a8af" target="_blank"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>Watch Intro Video</a>
-            
-          </div>
-        </div>
-
-        
-        <div class="card-footer">
-          <div class="card-recruiter-note">
-            <div class="recruiter-note-title">Recruiter Note</div>
-            <p>Brenton is the high-volume prospecting machine Lone Star needs to break through their top-of-funnel constraints. He's currently hitting 100+ calls daily at Sage Campaign, generating 8-10 qualified meetings monthly for AEs. That's exactly the output velocity you need to hit those 8-10 new agreements per month. His 20-year track record shows he can scale with you - he's managed teams up to 14 people and been promoted multiple times for performance. The healthcare sector experience means he knows how to work complex B2B sales cycles. At $2300, he's the lowest rate in this batch but brings the most relevant prospecting experience. The calculated risk worth taking on trajectory over resume.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="candidate-card">
-      <div class="card" id="candidate-4">
-        <div class="card-top">
-          <div class="card-identity">
-            <div class="card-avatar">LA</div>
-            <div>
-              <div class="card-name">Lannice A</div>
-              <div class="card-location">
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-                South Africa · Experience details not available
-              </div>
-              <div class="card-badges">
-                
-                
-              </div>
-            </div>
-          </div>
-          <div class="card-rate">
-            <div class="card-rate-amount">$2,500/mo</div>
-            <div class="card-rate-period">USD / Month</div>
-          </div>
-        </div>
-
-        <div class="card-body">
-          
-          <div class="card-narrative">
-            Lannice is the calculated risk worth taking in this batch. Sits in the middle pricing tier but brings the geographic advantage of South Africa's timezone overlap. Raw talent that could surprise you once ramped up.
-          </div>
-
-          
-
-          
-          <div class="card-section-title">Platforms &amp; Tools</div>
-          <div class="tags-cluster">
-            <span class="ctag ctag-key">Skills assessment pending resume review</span>
-            
-          </div>
-
-          
-          <div class="card-section-title">Lone Star Markets Fit Indicators</div>
-          <div class="fit-grid">
-            
-            <div class="fit-item">
-              <div class="fit-label">South Africa location → Matches Lone Star's existing global workforce strategy</div>
-            </div>
-            <div class="fit-item">
-              <div class="fit-label">$2500/month rate → Fits middle of your $2000-$3000 budget comfortably</div>
-            </div>
-            <div class="fit-item">
-              <div class="fit-label">Full-time US EST availability → Solves immediate bandwidth constraints for outbound sales</div>
-            </div>
-          </div>
-
-          
-          <div class="card-section-title">Strength Profile</div>
-          <div class="strength-bars">
-            
-            <div class="bar-item">
-              <div class="bar-label">Outbound Sales</div>
-              <div class="bar-track"><div class="bar-fill" style="width:70%"></div></div>
-            </div>
-            <div class="bar-item">
-              <div class="bar-label">Lead Generation</div>
-              <div class="bar-track"><div class="bar-fill" style="width:70%"></div></div>
-            </div>
-            <div class="bar-item">
-              <div class="bar-label">CRM Management</div>
-              <div class="bar-track"><div class="bar-fill" style="width:65%"></div></div>
-            </div>
-            <div class="bar-item">
-              <div class="bar-label">Client Communication</div>
-              <div class="bar-track"><div class="bar-fill" style="width:75%"></div></div>
-            </div>
-            <div class="bar-item">
-              <div class="bar-label">Remote Collaboration</div>
-              <div class="bar-track"><div class="bar-fill" style="width:80%"></div></div>
-            </div>
-            <div class="bar-item">
-              <div class="bar-label">Property Management Industry</div>
-              <div class="bar-track"><div class="bar-fill" style="width:60%"></div></div>
-            </div>
-          </div>
-
-          <div class="card-actions">
-            <a class="video-intro-btn" href="https://candidate-video.com/uploads/2ca494d6-36dd-4e51-8d57-6f2425449baa" target="_blank"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>Watch Intro Video</a>
-            
-          </div>
-        </div>
-
-        
-        <div class="card-footer">
-          <div class="card-recruiter-note">
-            <div class="recruiter-note-title">Recruiter Note</div>
-            <p>Lannice represents solid value positioning in this South African candidate pool. At $2500/month, she's priced competitively against the batch range of $2300-$3000. Her South African location aligns perfectly with Lone Star's existing remote workforce strategy across Philippines, Latin America, and South Africa. The timezone works for US EST collaboration, and she's ready for the full-time commitment Lone Star needs. While I don't have her full background details, her willingness to work within budget and availability for immediate start addresses your urgent need to scale outbound efforts beyond the current 10 LinkedIn outreaches per week.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="candidate-card">
-      <div class="card" id="candidate-5">
-        <div class="card-top">
-          <div class="card-identity">
-            <div class="card-avatar">CM</div>
-            <div>
-              <div class="card-name">Chiko M</div>
-              <div class="card-location">
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-                South Africa · 5 yrs Account Executive
-              </div>
-              <div class="card-badges">
-                
-                
-              </div>
-            </div>
-          </div>
-          <div class="card-rate">
-            <div class="card-rate-amount">$2,750/mo</div>
-            <div class="card-rate-period">USD / Month</div>
-          </div>
-        </div>
-
-        <div class="card-body">
-          
-          <div class="card-narrative">
-            Chiko is your cheat code for hitting those 8-10 monthly agreements. He doesn't just prospect. He closes. The Summit Club recognition at Go1 proves he can compete with the best. More than meets the eye at this price point.
-          </div>
-
-          
-          <div class="card-section-title">Experience Highlights</div>
-          <div class="experience-list">
-            
-            <div class="exp-item">
-              <div class="exp-dot-col">
-                <div class="exp-dot"></div>
-                <div class="exp-line"></div>
-              </div>
-              <div class="exp-content">
-                <div class="exp-role">Account Executive (E-commerce)</div>
-                <div class="exp-company">Productside, Denver, United States (Remote) · March 2024 • present</div>
-                <div class="exp-highlight">Managed the full sales cycle from nurturing indicative interest to closed deals across mid-market &amp; enterprise opportunities.</div>
-              </div>
-            </div>
-            <div class="exp-item">
-              <div class="exp-dot-col">
-                <div class="exp-dot"></div>
-                <div class="exp-line"></div>
-              </div>
-              <div class="exp-content">
-                <div class="exp-role">Senior Business Development Executive | Talent Development Business Unit</div>
-                <div class="exp-company">LRMG, Johannesburg, Gauteng, South Africa (Remote) · February 2023 • February 2024</div>
-                <div class="exp-highlight">Helped establish a consolidated sales system and approach for the various offerings</div>
-              </div>
-            </div>
-            <div class="exp-item">
-              <div class="exp-dot-col">
-                <div class="exp-dot"></div>
-                <div class="exp-line"></div>
-              </div>
-              <div class="exp-content">
-                <div class="exp-role">Account Executive</div>
-                <div class="exp-company">Go1, Salt Lake City, United States (Remote) · June 2020 • January 2023</div>
-                <div class="exp-highlight">Managed the full sales lifecycle: discovery, solution design, negotiation, collaboration and sale close. This resulted in:</div>
-              </div>
-            </div>
-            <div class="exp-item">
-              <div class="exp-dot-col">
-                <div class="exp-dot"></div>
-                
-              </div>
-              <div class="exp-content">
-                <div class="exp-role">Customer Success Manager</div>
-                <div class="exp-company">Bolt, Tallinn, Estonia (Remote) · December 2018 • May 2020</div>
-                <div class="exp-highlight">Responsible for transitioning newly won business through a dedicated mapped out transition and onboarding plan.</div>
-              </div>
-            </div>
-          </div>
-
-          
-          <div class="card-section-title">Platforms &amp; Tools</div>
-          <div class="tags-cluster">
-            <span class="ctag ctag-key">Salesforce</span><span class="ctag ctag-key">LinkedIn Sales Nav</span><span class="ctag ctag-key">Full-cycle B2B sales</span><span class="ctag ctag-key">Enterprise sales</span><span class="ctag ctag-key">Pipeline forecasting</span>
-            <span class="ctag">Stakeholder navigation</span>
-          </div>
-
-          
-          <div class="card-section-title">Lone Star Markets Fit Indicators</div>
-          <div class="fit-grid">
-            
-            <div class="fit-item">
-              <div class="fit-label">5 years full-cycle Account Executive experience → Lone Star needs someone who can handle entire sales process for property manager agreements</div>
-            </div>
-            <div class="fit-item">
-              <div class="fit-label">142% quota achievement in 2025 → Your 8-10 monthly agreement target requires a proven closer, not just a prospector</div>
-            </div>
-            <div class="fit-item">
-              <div class="fit-label">Enterprise account expansion averaging 24% revenue increase → Property managers have multiple locations, perfect for account growth strategy</div>
-            </div>
-          </div>
-
-          
-          <div class="card-section-title">Strength Profile</div>
-          <div class="strength-bars">
-            
-            <div class="bar-item">
-              <div class="bar-label">B2B Sales</div>
-              <div class="bar-track"><div class="bar-fill" style="width:95%"></div></div>
-            </div>
-            <div class="bar-item">
-              <div class="bar-label">Pipeline Management</div>
-              <div class="bar-track"><div class="bar-fill" style="width:88%"></div></div>
-            </div>
-            <div class="bar-item">
-              <div class="bar-label">Salesforce</div>
-              <div class="bar-track"><div class="bar-fill" style="width:90%"></div></div>
-            </div>
-            <div class="bar-item">
-              <div class="bar-label">Enterprise Sales</div>
-              <div class="bar-track"><div class="bar-fill" style="width:85%"></div></div>
-            </div>
-            <div class="bar-item">
-              <div class="bar-label">Account Expansion</div>
-              <div class="bar-track"><div class="bar-fill" style="width:92%"></div></div>
-            </div>
-            <div class="bar-item">
-              <div class="bar-label">Stakeholder Navigation</div>
-              <div class="bar-track"><div class="bar-fill" style="width:87%"></div></div>
-            </div>
-          </div>
-
-          <div class="card-actions">
-            <a class="video-intro-btn" href="https://candidate-video.com/uploads/ae86b931-4653-4267-9374-1601e76fc911" target="_blank"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>Watch Intro Video</a>
-            
-          </div>
-        </div>
-
-        
-        <div class="card-footer">
-          <div class="card-recruiter-note">
-            <div class="recruiter-note-title">Recruiter Note</div>
-            <p>Chiko stands out in this batch because he's actually doing the job you need right now. Full-cycle Account Executive closing mid-market and enterprise deals at Productside. His 142% quota achievement in 2025 shows he's not just maintaining. He's accelerating. The Go1 Summit Club recognition is real validation. You don't get top 10 company-wide without serious closing skills. He's managed complex stakeholder landscapes across CXO levels, which maps perfectly to your property manager sales cycles. The 24% average revenue increase across 6 Enterprise accounts shows he thinks beyond the initial close. At $2750/month, you're getting proven closer performance at mid-tier batch pricing.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="candidate-card">
-      <div class="card" id="candidate-6">
-        <div class="card-top">
-          <div class="card-identity">
-            <div class="card-avatar">NM</div>
-            <div>
-              <div class="card-name">Nkululeko M.</div>
-              <div class="card-location">
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-                South Africa · 4+ yrs Sales
-              </div>
-              <div class="card-badges">
-                
-                
-              </div>
-            </div>
-          </div>
-          <div class="card-rate">
-            <div class="card-rate-amount">$2,500/mo</div>
-            <div class="card-rate-period">USD / Month</div>
-          </div>
-        </div>
-
-        <div class="card-body">
-          
-          <div class="card-narrative">
-            Nkululeko is the force multiplier in this batch. He's done the exact job you need: full-cycle sales with pipeline generation that converts. The 20% conversion rate at Universal Hire proves he doesn't just dial for activity. He dials for results.
-          </div>
-
-          
-          <div class="card-section-title">Experience Highlights</div>
-          <div class="experience-list">
-            
-            <div class="exp-item">
-              <div class="exp-dot-col">
-                <div class="exp-dot"></div>
-                <div class="exp-line"></div>
-              </div>
-              <div class="exp-content">
-                <div class="exp-role">Account Executive</div>
-                <div class="exp-company">Zeover · Nov 2025 – Present</div>
-                <div class="exp-highlight">• Own full sales cycle from prospecting to close • Conduct discovery calls, product demos, and negotiations • Collaborate with marketing on GTM strategy • Maintain CRM accuracy and performance tracking</div>
-              </div>
-            </div>
-            <div class="exp-item">
-              <div class="exp-dot-col">
-                <div class="exp-dot"></div>
-                <div class="exp-line"></div>
-              </div>
-              <div class="exp-content">
-                <div class="exp-role">Business Development Executive</div>
-                <div class="exp-company">Universal Hire · Jan 2024 – Sep 2025</div>
-                <div class="exp-highlight">• Built pipeline of 150+ prospects/quarter with 20% conversion • Closed 30+ accounts generating $250K+ revenue • Achieved 25% outreach response rates • Improved inbound leads by 30% via SEO collaboration</div>
-              </div>
-            </div>
-            <div class="exp-item">
-              <div class="exp-dot-col">
-                <div class="exp-dot"></div>
-                
-              </div>
-              <div class="exp-content">
-                <div class="exp-role">Sales Service Representative</div>
-                <div class="exp-company">DGC · Jan 2021 – Dec 2023</div>
-                <div class="exp-highlight">• Managed 50+ daily calls and booked 20+ weekly meetings • Exceeded quotas (110%+) and generated $180K+ revenue • Improved retention by 30% • Trained new hires on sales processes</div>
-              </div>
-            </div>
-          </div>
-
-          
-          <div class="card-section-title">Platforms &amp; Tools</div>
-          <div class="tags-cluster">
-            <span class="ctag ctag-key">Full-Cycle Sales</span><span class="ctag ctag-key">Pipeline Generation</span><span class="ctag ctag-key">Salesforce</span><span class="ctag ctag-key">HubSpot</span><span class="ctag ctag-key">Cold Calling</span>
-            <span class="ctag">Closing</span>
-          </div>
-
-          
-          <div class="card-section-title">Lone Star Markets Fit Indicators</div>
-          <div class="fit-grid">
-            
-            <div class="fit-item">
-              <div class="fit-label">Built 150+ prospect pipeline/quarter → Lone Star needs consistent top-of-funnel to hit 8-10 monthly agreements</div>
-            </div>
-            <div class="fit-item">
-              <div class="fit-label">20% outreach conversion rates → Addresses your current bottleneck of only 10 LinkedIn reaches/week</div>
-            </div>
-            <div class="fit-item">
-              <div class="fit-label">Salesforce + HubSpot experience → Integrates seamlessly with your existing CRM infrastructure</div>
-            </div>
-          </div>
-
-          
-          <div class="card-section-title">Strength Profile</div>
-          <div class="strength-bars">
-            
-            <div class="bar-item">
-              <div class="bar-label">Pipeline Generation</div>
-              <div class="bar-track"><div class="bar-fill" style="width:88%"></div></div>
-            </div>
-            <div class="bar-item">
-              <div class="bar-label">Cold Calling</div>
-              <div class="bar-track"><div class="bar-fill" style="width:92%"></div></div>
-            </div>
-            <div class="bar-item">
-              <div class="bar-label">CRM Management</div>
-              <div class="bar-track"><div class="bar-fill" style="width:85%"></div></div>
-            </div>
-            <div class="bar-item">
-              <div class="bar-label">Closing Skills</div>
-              <div class="bar-track"><div class="bar-fill" style="width:82%"></div></div>
-            </div>
-            <div class="bar-item">
-              <div class="bar-label">Outreach Strategy</div>
-              <div class="bar-track"><div class="bar-fill" style="width:90%"></div></div>
-            </div>
-            <div class="bar-item">
-              <div class="bar-label">Account Management</div>
-              <div class="bar-track"><div class="bar-fill" style="width:78%"></div></div>
-            </div>
-          </div>
-
-          <div class="card-actions">
-            <a class="video-intro-btn" href="https://pub-320f624a298145c09bbf1003b5cf0a27.r2.dev/uploads/f2d6b585-589b-44d3-bd74-8b31ec0163c7" target="_blank"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>Watch Intro Video</a>
-            
-          </div>
-        </div>
-
-        
-        <div class="card-footer">
-          <div class="card-recruiter-note">
-            <div class="recruiter-note-title">Recruiter Note</div>
-            <p>Nkululeko sits right in the sweet spot for this role. He's got the full-cycle sales experience Lone Star needs but hasn't priced himself out of your budget range. The Universal Hire numbers tell the real story: 150+ prospects per quarter converting at 20% is exactly the pipeline velocity you need to hit those 8-10 monthly agreements. His current Account Executive role at Zeover shows he's still in the game and growing. The combination of high-volume prospecting skills with proven closing ability makes him a safe bet. Only trade-off: he's newer to pure Account Executive level compared to some senior profiles, but his trajectory is solid.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="candidate-card">
-      <div class="card" id="candidate-7">
-        <div class="card-top">
-          <div class="card-identity">
-            <div class="card-avatar">SM</div>
-            <div>
-              <div class="card-name">Sibusisiwe M</div>
-              <div class="card-location">
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-                South Africa · 6+ yrs B2B Sales
-              </div>
-              <div class="card-badges">
-                
-                
-              </div>
-            </div>
-          </div>
-          <div class="card-rate">
-            <div class="card-rate-amount">$3,000/mo</div>
-            <div class="card-rate-period">USD / Month</div>
-          </div>
-        </div>
-
-        <div class="card-body">
-          
-          <div class="card-narrative">
-            Sibusisiwe is the adult in the room pick. That Airbnb promotion tells the whole story. She doesn't just execute. She elevates fast enough to get noticed by global brands. Comes across more impressive in person than on paper.
-          </div>
-
-          
-          <div class="card-section-title">Experience Highlights</div>
-          <div class="experience-list">
-            
-            <div class="exp-item">
-              <div class="exp-dot-col">
-                <div class="exp-dot"></div>
-                <div class="exp-line"></div>
-              </div>
-              <div class="exp-content">
-                <div class="exp-role">ACCOUNT EXECUTIVE (PROMOTED FROM SALES DEVELOPMENT REPRESENTATIVE)</div>
-                <div class="exp-company">Contracted to Airbnb via FullFunnel · January 2025 - Present (4 Month Contract)</div>
-                <div class="exp-highlight">● Fast-tracked to Account Executive within one month, taking on a client-facing role for Airbnb, a global travel and hospitality industry leader.</div>
-              </div>
-            </div>
-            <div class="exp-item">
-              <div class="exp-dot-col">
-                <div class="exp-dot"></div>
-                <div class="exp-line"></div>
-              </div>
-              <div class="exp-content">
-                <div class="exp-role">SENIOR SALES DEVELOPMENT REPRESENTATIVE (SDR)</div>
-                <div class="exp-company">Delega · June 2024 - December 2024</div>
-                <div class="exp-highlight">● Spearheaded sales efforts in the US e-commerce market, driving new client acquisition and revenue growth for high-ticket recurring Salesforce support services.</div>
-              </div>
-            </div>
-            <div class="exp-item">
-              <div class="exp-dot-col">
-                <div class="exp-dot"></div>
-                <div class="exp-line"></div>
-              </div>
-              <div class="exp-content">
-                <div class="exp-role">SDR MANAGER &amp; CLIENT SUCCESS MANAGER</div>
-                <div class="exp-company">DigiWorks · July 2023 – Present</div>
-                <div class="exp-highlight">● Managed and trained SDR teams, overseeing appointment booking, deal closing, and performance management.</div>
-              </div>
-            </div>
-            <div class="exp-item">
-              <div class="exp-dot-col">
-                <div class="exp-dot"></div>
-                
-              </div>
-              <div class="exp-content">
-                <div class="exp-role">SDR (CONTRACT ROLE)</div>
-                <div class="exp-company">J2 Group · May 2024 (1-Month Contract)</div>
-                <div class="exp-highlight">● Executed B2B sales, appointment setting, and outbound prospecting for the Australian market.</div>
-              </div>
-            </div>
-          </div>
-
-          
-          <div class="card-section-title">Platforms &amp; Tools</div>
-          <div class="tags-cluster">
-            <span class="ctag ctag-key">Full-cycle Sales</span><span class="ctag ctag-key">Account Management</span><span class="ctag ctag-key">Salesforce</span><span class="ctag ctag-key">HubSpot</span><span class="ctag ctag-key">Apollo</span>
-            <span class="ctag">Property Sales</span>
-          </div>
-
-          
-          <div class="card-section-title">Lone Star Markets Fit Indicators</div>
-          <div class="fit-grid">
-            
-            <div class="fit-item">
-              <div class="fit-label">5 years property sales at Engel &amp; Völkers → Understands Class A residential decision-makers and property management mindset</div>
-            </div>
-            <div class="fit-item">
-              <div class="fit-label">Fast-tracked to Account Executive at Airbnb in 1 month → Proves ability to accelerate quickly in your hyper-growth environment</div>
-            </div>
-            <div class="fit-item">
-              <div class="fit-label">Full-cycle sales US/UK markets → Geographic experience matches your nationwide expansion exactly</div>
-            </div>
-          </div>
-
-          
-          <div class="card-section-title">Strength Profile</div>
-          <div class="strength-bars">
-            
-            <div class="bar-item">
-              <div class="bar-label">B2B Sales</div>
-              <div class="bar-track"><div class="bar-fill" style="width:92%"></div></div>
-            </div>
-            <div class="bar-item">
-              <div class="bar-label">Account Management</div>
-              <div class="bar-track"><div class="bar-fill" style="width:88%"></div></div>
-            </div>
-            <div class="bar-item">
-              <div class="bar-label">CRM Proficiency</div>
-              <div class="bar-track"><div class="bar-fill" style="width:85%"></div></div>
-            </div>
-            <div class="bar-item">
-              <div class="bar-label">Cold Outreach</div>
-              <div class="bar-track"><div class="bar-fill" style="width:90%"></div></div>
-            </div>
-            <div class="bar-item">
-              <div class="bar-label">Deal Closing</div>
-              <div class="bar-track"><div class="bar-fill" style="width:87%"></div></div>
-            </div>
-            <div class="bar-item">
-              <div class="bar-label">Client Relationships</div>
-              <div class="bar-track"><div class="bar-fill" style="width:91%"></div></div>
-            </div>
-          </div>
-
-          <div class="card-actions">
-            <a class="video-intro-btn" href="https://pub-320f624a298145c09bbf1003b5cf0a27.r2.dev/uploads/43ac679a-162d-4c5d-b660-cf64b5db4f42" target="_blank"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>Watch Intro Video</a>
-            
-          </div>
-        </div>
-
-        
-        <div class="card-footer">
-          <div class="card-recruiter-note">
-            <div class="recruiter-note-title">Recruiter Note</div>
-            <p>Sibusisiwe stands out as the most seasoned closer in this batch. The Airbnb contract role is telling. They fast-tracked her to Account Executive in one month, which doesn't happen unless you're delivering real results. Her property background at Engel &amp; Völkers gives her an edge understanding your Class A residential clients' mindset. She's worked both high-ticket B2B (Salesforce services at Delega) and relationship-heavy industries (real estate, automotive). Trade-off: She's at the top of your budget range, but this is a case where you get what you pay for. The experience depth justifies the premium.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="candidate-card">
-      <div class="card" id="candidate-8">
-        <div class="card-top">
-          <div class="card-identity">
-            <div class="card-avatar">TM</div>
-            <div>
-              <div class="card-name">Tiisetso M</div>
-              <div class="card-location">
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-                South Africa · 11+ yrs B2B Sales
-              </div>
-              <div class="card-badges">
-                
-                
-              </div>
-            </div>
-          </div>
-          <div class="card-rate">
-            <div class="card-rate-amount">$3,000/mo</div>
-            <div class="card-rate-period">USD / Month</div>
-          </div>
-        </div>
-
-        <div class="card-body">
-          
-          <div class="card-narrative">
-            Tiisetso is the tank in this batch. 11 years at one company means he's built for the long haul. He's done the full Account Executive playbook: pipeline generation, complex B2B sales, enterprise client management. The longevity at Caledon proves he delivers consistently.
-          </div>
-
-          
-          <div class="card-section-title">Experience Highlights</div>
-          <div class="experience-list">
-            
-            <div class="exp-item">
-              <div class="exp-dot-col">
-                <div class="exp-dot"></div>
-                <div class="exp-line"></div>
-              </div>
-              <div class="exp-content">
-                <div class="exp-role">Senior Account Executive | New Business Development Manager</div>
-                <div class="exp-company">Caledon Group · 2013 – Present</div>
-                <div class="exp-highlight">Own and drive new business acquisition and complex enterprise solution sales across government and private sector clients, managing the entire sales lifecycle from initial lead generation to contract signature and handover.</div>
-              </div>
-            </div>
-            <div class="exp-item">
-              <div class="exp-dot-col">
-                <div class="exp-dot"></div>
-                
-              </div>
-              <div class="exp-content">
-                <div class="exp-role">Academic &amp; Sports Development Coordinator</div>
-                <div class="exp-company">Jeppe High School for Boys · Jan 2008 – Dec 2012</div>
-                <div class="exp-highlight">• Program Development &amp; Management: Refined and implemented long-term development plans, improving program effectiveness—analogous to operational strategy.</div>
-              </div>
-            </div>
-          </div>
-
-          
-          <div class="card-section-title">Platforms &amp; Tools</div>
-          <div class="tags-cluster">
-            <span class="ctag ctag-key">New Business Development</span><span class="ctag ctag-key">Full-Cycle Sales</span><span class="ctag ctag-key">Enterprise Sales</span><span class="ctag ctag-key">Pipeline Management</span><span class="ctag ctag-key">CRM</span>
-            <span class="ctag">Consultative Selling</span>
-          </div>
-
-          
-          <div class="card-section-title">Lone Star Markets Fit Indicators</div>
-          <div class="fit-grid">
-            
-            <div class="fit-item">
-              <div class="fit-label">11 years managing full sales lifecycle at Caledon → Can handle Lone Star's 8-10 monthly agreement targets without ramp-up</div>
-            </div>
-            <div class="fit-item">
-              <div class="fit-label">Enterprise and government client experience → Understands complex stakeholder dynamics with property managers and asset managers</div>
-            </div>
-            <div class="fit-item">
-              <div class="fit-label">Proven pipeline management and forecasting → Addresses Lone Star's current outbound bottleneck with systematic approach</div>
-            </div>
-          </div>
-
-          
-          <div class="card-section-title">Strength Profile</div>
-          <div class="strength-bars">
-            
-            <div class="bar-item">
-              <div class="bar-label">New Business Development</div>
-              <div class="bar-track"><div class="bar-fill" style="width:88%"></div></div>
-            </div>
-            <div class="bar-item">
-              <div class="bar-label">Full-Cycle Sales</div>
-              <div class="bar-track"><div class="bar-fill" style="width:92%"></div></div>
-            </div>
-            <div class="bar-item">
-              <div class="bar-label">Pipeline Management</div>
-              <div class="bar-track"><div class="bar-fill" style="width:85%"></div></div>
-            </div>
-            <div class="bar-item">
-              <div class="bar-label">Enterprise Sales</div>
-              <div class="bar-track"><div class="bar-fill" style="width:90%"></div></div>
-            </div>
-            <div class="bar-item">
-              <div class="bar-label">CRM Management</div>
-              <div class="bar-track"><div class="bar-fill" style="width:82%"></div></div>
-            </div>
-            <div class="bar-item">
-              <div class="bar-label">Consultative Selling</div>
-              <div class="bar-track"><div class="bar-fill" style="width:87%"></div></div>
-            </div>
-          </div>
-
-          <div class="card-actions">
-            <a class="video-intro-btn" href="https://pub-320f624a298145c09bbf1003b5cf0a27.r2.dev/uploads/399a03ef-9a69-41ab-82c9-48ed07b87432" target="_blank"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>Watch Intro Video</a>
-            
-          </div>
-        </div>
-
-        
-        <div class="card-footer">
-          <div class="card-recruiter-note">
-            <div class="recruiter-note-title">Recruiter Note</div>
-            <p>Tiisetso brings heavyweight experience to Lone Star's Account Executive role. His 11-year tenure at Caledon Group doing exactly what you need: new business development, complex solution sales, full sales cycle management. He's worked both government and private enterprise clients, so he understands the longer sales cycles and stakeholder complexity that come with property management deals. The trade-off is price. He's at your budget ceiling at $3000/month, but you're paying for someone who won't need training on sales fundamentals. He can start building that pipeline immediately while your overloaded team focuses on other priorities.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-    </div>
-    
-  <div class="comparison-section">
-    <div class="section-label" style="padding-bottom:20px;">
-      <h2>Side-by-Side Comparison</h2>
-      <p>Key criteria at a glance to help you prioritize interviews.</p>
-    </div>
-    <div class="comparison-table-wrap">
-      <table class="comparison-table">
-        <thead>
-          <tr>
-            <th>Criteria</th>
-            <th>Brenton B</th><th>Lannice A</th><th>Chiko M</th><th>Nkululeko M.</th><th>Sibusisiwe M</th><th>Tiisetso M</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr><td><strong>Location</strong></td><td>South Africa</td><td>South Africa</td><td>South Africa</td><td>South Africa</td><td>South Africa</td><td>South Africa</td></tr>
-          <tr><td><strong>Experience</strong></td><td>20+ yrs Sales/BD</td><td>Experience details not available</td><td>5 yrs Account Executive</td><td>4+ yrs Sales</td><td>6+ yrs B2B Sales</td><td>11+ yrs B2B Sales</td></tr>
-          <tr><td><strong>Key Employers</strong></td><td>TFG, CCI, OneCall24</td><td>See profile</td><td>Productside, Denver, United States (Remote), LRMG, Johannesburg, Gauteng, South Africa (Remote), Go1, Salt Lake City, United States (Remote)</td><td>Zeover, Universal Hire, DGC</td><td>Contracted to Airbnb via FullFunnel, Delega, DigiWorks</td><td>Caledon Group, Jeppe High School for Boys</td></tr>
-          <tr><td><strong>Core Strength</strong></td><td>Outbound Prospecting, Cold Calling, B2B Sales</td><td>Skills assessment pending resume review</td><td>Salesforce, LinkedIn Sales Nav, Full-cycle B2B sales</td><td>Full-Cycle Sales, Pipeline Generation, Salesforce</td><td>Full-cycle Sales, Account Management, Salesforce</td><td>New Business Development, Full-Cycle Sales, Enterprise Sales</td></tr>
-          <tr><td><strong>HRIS / Tools</strong></td><td>Outbound Prospecting, Cold Calling, B2B Sales, Lead Generation, Team Leadership</td><td>Skills assessment pending resume review</td><td>Salesforce, LinkedIn Sales Nav, Full-cycle B2B sales, Enterprise sales, Pipeline forecasting</td><td>Full-Cycle Sales, Pipeline Generation, Salesforce, HubSpot, Cold Calling</td><td>Full-cycle Sales, Account Management, Salesforce, HubSpot, Apollo</td><td>New Business Development, Full-Cycle Sales, Enterprise Sales, Pipeline Management, CRM</td></tr>
-          <tr><td><strong>Languages</strong></td><td>English, Afrikaans, IsiZulu</td><td>English</td><td>English</td><td>English, isiZulu, Afrikaans</td><td>Xhosa, Zulu, English</td><td>English</td></tr>
-          <tr><td><strong>Education</strong></td><td>INSETA – NQF Level 4 Qualification (INSETA); FirstRand Training Academy (FirstRand Training Academy)</td><td>See profile</td><td>Bachelor of Applied Science in Electrical Engineering (University of Ottawa • Ottawa, Ontario, Canada)</td><td>IEB Matric (Ashton International College)</td><td>PROJECT MANAGEMENT COURSE | GOOGLE ONLINE COURSE (Google); UX DESEIGNER COUSRE | GOOGLE ONLINE COURSE (Google)</td><td>See profile</td></tr>
-          <tr><td><strong>Rate</strong></td><td class="highlight-cell">$2,300/mo</td><td>$2,500/mo</td><td>$2,750/mo</td><td>$2,500/mo</td><td>$3,000/mo</td><td>$3,000/mo</td></tr>
-          
-        </tbody>
-      </table>
-    </div>
-  </div>
-  </div>
-
-  <div id="batch-1" class="batch-panel">
-    <div class="candidates">
-      
     <div class="candidate-card">
       <div class="card featured" id="candidate-0">
         <div class="card-top">
           <div class="card-identity">
-            <div class="card-avatar featured-avatar">FM</div>
+            <div class="card-avatar featured-avatar">VM</div>
             <div>
-              <div class="card-name">Fatu Mauridi</div>
+              <div class="card-name">Vuyisanani M</div>
               <div class="card-location">
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-                South Africa · 8 yrs Sales &amp; Account Management
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                South Africa &middot; 8+ yrs Sales &amp; Finance
               </div>
               <div class="card-badges">
                 
@@ -1435,133 +309,6 @@
             </div>
           </div>
           <div class="card-rate">
-            <div class="card-rate-amount">$2,000/mo</div>
-            <div class="card-rate-period">USD / Month</div>
-          </div>
-        </div>
-
-        <div class="card-body">
-          
-          <div class="card-narrative">
-            Fatu is the perfect cultural bridge for Lone Star's property manager targets. JLL background means she already has relationships in Class A commercial real estate. Understands the decision-making process for amenity installations. Worth every penny at this price point.
-          </div>
-
-          
-          <div class="card-section-title">Experience Highlights</div>
-          <div class="experience-list">
-            
-            <div class="exp-item">
-              <div class="exp-dot-col">
-                <div class="exp-dot"></div>
-                <div class="exp-line"></div>
-              </div>
-              <div class="exp-content">
-                <div class="exp-role">Senior Account Executive</div>
-                <div class="exp-company">JLL Property Management · Jan 2021 - Present</div>
-                
-              </div>
-            </div>
-            <div class="exp-item">
-              <div class="exp-dot-col">
-                <div class="exp-dot"></div>
-                <div class="exp-line"></div>
-              </div>
-              <div class="exp-content">
-                <div class="exp-role">Business Development Manager</div>
-                <div class="exp-company">Vodacom Business · Mar 2018 - Dec 2020</div>
-                
-              </div>
-            </div>
-            <div class="exp-item">
-              <div class="exp-dot-col">
-                <div class="exp-dot"></div>
-                
-              </div>
-              <div class="exp-content">
-                <div class="exp-role">Sales Representative</div>
-                <div class="exp-company">Cell C Corporate · Jun 2016 - Feb 2018</div>
-                
-              </div>
-            </div>
-          </div>
-
-          
-          <div class="card-section-title">Platforms &amp; Tools</div>
-          <div class="tags-cluster">
-            <span class="ctag ctag-key">Salesforce</span><span class="ctag ctag-key">B2B Sales</span><span class="ctag ctag-key">Property Management</span><span class="ctag ctag-key">Telecom</span><span class="ctag ctag-key">Key Account Management</span>
-            <span class="ctag">Pipeline Management</span>
-          </div>
-
-          
-          <div class="card-section-title">Lone Star Markets Fit Indicators</div>
-          <div class="fit-grid">
-            
-            <div class="fit-item">
-              <div class="fit-label">5 years B2B sales at Vodacom Business. Closed enterprise telecom deals averaging R500K</div>
-            </div>
-            <div class="fit-item">
-              <div class="fit-label">3 years managing key accounts for Class A commercial properties at JLL</div>
-            </div>
-            <div class="fit-item">
-              <div class="fit-label">CRM expert: Salesforce daily user for pipeline management and client tracking</div>
-            </div>
-          </div>
-
-          
-          <div class="card-section-title">Strength Profile</div>
-          <div class="strength-bars">
-            
-            <div class="bar-item">
-              <div class="bar-label">Salesforce</div>
-              <div class="bar-track"><div class="bar-fill" style="width:95%"></div></div>
-            </div>
-            <div class="bar-item">
-              <div class="bar-label">B2B Sales</div>
-              <div class="bar-track"><div class="bar-fill" style="width:90%"></div></div>
-            </div>
-            <div class="bar-item">
-              <div class="bar-label">Property Management</div>
-              <div class="bar-track"><div class="bar-fill" style="width:88%"></div></div>
-            </div>
-            <div class="bar-item">
-              <div class="bar-label">Telecom</div>
-              <div class="bar-track"><div class="bar-fill" style="width:85%"></div></div>
-            </div>
-            <div class="bar-item">
-              <div class="bar-label">Key Account Management</div>
-              <div class="bar-track"><div class="bar-fill" style="width:82%"></div></div>
-            </div>
-            <div class="bar-item">
-              <div class="bar-label">Pipeline Management</div>
-              <div class="bar-track"><div class="bar-fill" style="width:78%"></div></div>
-            </div>
-          </div>
-
-          <div class="card-actions">
-            <a class="video-intro-btn" href="https://pub-320f624a298145c09bbf1003b5cf0a27.r2.dev/uploads/9737e726-56fd-4051-b9a0-36a7f3934171" target="_blank"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>Watch Intro Video</a>
-            
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="candidate-card">
-      <div class="card" id="candidate-1">
-        <div class="card-top">
-          <div class="card-identity">
-            <div class="card-avatar">GL</div>
-            <div>
-              <div class="card-name">Gabri Lourens</div>
-              <div class="card-location">
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-                South Africa · 8 yrs B2B Sales
-              </div>
-              <div class="card-badges">
-                
-                
-              </div>
-            </div>
-          </div>
-          <div class="card-rate">
             <div class="card-rate-amount">$3,000/mo</div>
             <div class="card-rate-period">USD / Month</div>
           </div>
@@ -1570,7 +317,7 @@
         <div class="card-body">
           
           <div class="card-narrative">
-            Gabri is your cheat code for the outbound bottleneck. While your current recruiter reaches 10 people weekly, he's connecting with 200+. Tank-level prospecting skills with the property management background to speak your clients' language. Heavyweight who pays for himself in 90 days.
+            Vuyisanani is the founder DNA pick. He's built companies from scratch and closed deals independently. The Stone Creek Global experience shows he can handle complex, high-value transactions. Worth every penny for Harrison's U.S. expansion push.
           </div>
 
           
@@ -1583,9 +330,9 @@
                 <div class="exp-line"></div>
               </div>
               <div class="exp-content">
-                <div class="exp-role">Senior Account Executive</div>
-                <div class="exp-company">PropTech Solutions SA · Jun 2020 - Present</div>
-                
+                <div class="exp-role">Founder and Managing Director</div>
+                <div class="exp-company">V-Gross Capital &middot; July 2022 – Present</div>
+                <div class="exp-highlight">Founded a financial consultancy firm to serve as a single point of contact for SMEs seeking funding, eliminating the hassle of sourcing finance partners.</div>
               </div>
             </div>
             <div class="exp-item">
@@ -1594,9 +341,20 @@
                 <div class="exp-line"></div>
               </div>
               <div class="exp-content">
-                <div class="exp-role">Business Development Rep</div>
-                <div class="exp-company">CloudServe Africa · Mar 2018 - May 2020</div>
-                
+                <div class="exp-role">International Account Executive</div>
+                <div class="exp-company">Stone Creek Global &middot; June 2021 – Present</div>
+                <div class="exp-highlight">Facilitate and originate global loan transactions collateralized by publicly traded securities.</div>
+              </div>
+            </div>
+            <div class="exp-item">
+              <div class="exp-dot-col">
+                <div class="exp-dot"></div>
+                <div class="exp-line"></div>
+              </div>
+              <div class="exp-content">
+                <div class="exp-role">Finance Officer - Investment Solutions (Bank &amp; Scrip Reconciliation)</div>
+                <div class="exp-company">Liberty Group &middot; October 2021 – October 2022</div>
+                <div class="exp-highlight">Conducted daily P&amp;L reconciliation and monitored banking activities at portfolio and bucket account levels to detect irregularities and prevent fraud.</div>
               </div>
             </div>
             <div class="exp-item">
@@ -1605,9 +363,9 @@
                 
               </div>
               <div class="exp-content">
-                <div class="exp-role">Sales Associate</div>
-                <div class="exp-company">Tech Dynamics · Jan 2016 - Feb 2018</div>
-                
+                <div class="exp-role">NOC Systems Officer / Junior Systems Engineer</div>
+                <div class="exp-company">Kwese Play (Company Liquidated) &middot; June 2017 – August 2019</div>
+                <div class="exp-highlight">Provided 24/7 first-line support and monitoring for a large-scale broadcast IT infrastructure, including OTT (iOS, Android, Roku) and DTH systems.</div>
               </div>
             </div>
           </div>
@@ -1615,8 +373,8 @@
           
           <div class="card-section-title">Platforms &amp; Tools</div>
           <div class="tags-cluster">
-            <span class="ctag ctag-key">HubSpot</span><span class="ctag ctag-key">LinkedIn Sales Navigator</span><span class="ctag ctag-key">Cold Outreach</span><span class="ctag ctag-key">Territory Management</span><span class="ctag ctag-key">SaaS Sales</span>
-            
+            <span class="ctag ctag-key">Deal Closing</span><span class="ctag ctag-key">Financial Analysis</span><span class="ctag ctag-key">SAP</span><span class="ctag ctag-key">Client Management</span><span class="ctag ctag-key">Business Development</span>
+            <span class="ctag">Due Diligence</span>
           </div>
 
           
@@ -1624,13 +382,13 @@
           <div class="fit-grid">
             
             <div class="fit-item">
-              <div class="fit-label">8 years B2B sales across SaaS and tech services. Consistently hits 110%+ quota</div>
+              <div class="fit-label">Founded V-Gross Capital serving SMEs → Understands property management pain points and budget constraints</div>
             </div>
             <div class="fit-item">
-              <div class="fit-label">Cold outreach specialist: 200+ LinkedIn connects weekly, 15% response rates at current role</div>
+              <div class="fit-label">Closed deals independently at Business Partners → Harrison needs someone who can take warm leads and close without hand-holding</div>
             </div>
             <div class="fit-item">
-              <div class="fit-label">Managed $2.3M territory at previous company. Knows how to work big accounts</div>
+              <div class="fit-label">Global transaction experience at Stone Creek → Can handle U.S.-based property managers and asset managers professionally</div>
             </div>
           </div>
 
@@ -1639,44 +397,57 @@
           <div class="strength-bars">
             
             <div class="bar-item">
-              <div class="bar-label">HubSpot</div>
-              <div class="bar-track"><div class="bar-fill" style="width:95%"></div></div>
-            </div>
-            <div class="bar-item">
-              <div class="bar-label">LinkedIn Sales Navigator</div>
-              <div class="bar-track"><div class="bar-fill" style="width:90%"></div></div>
-            </div>
-            <div class="bar-item">
-              <div class="bar-label">Cold Outreach</div>
+              <div class="bar-label">Deal Closing</div>
               <div class="bar-track"><div class="bar-fill" style="width:88%"></div></div>
             </div>
             <div class="bar-item">
-              <div class="bar-label">Territory Management</div>
+              <div class="bar-label">CRM Management</div>
+              <div class="bar-track"><div class="bar-fill" style="width:75%"></div></div>
+            </div>
+            <div class="bar-item">
+              <div class="bar-label">Client Relationship Building</div>
               <div class="bar-track"><div class="bar-fill" style="width:85%"></div></div>
             </div>
             <div class="bar-item">
-              <div class="bar-label">SaaS Sales</div>
+              <div class="bar-label">U.S. Market Knowledge</div>
+              <div class="bar-track"><div class="bar-fill" style="width:60%"></div></div>
+            </div>
+            <div class="bar-item">
+              <div class="bar-label">Sales Process Execution</div>
               <div class="bar-track"><div class="bar-fill" style="width:82%"></div></div>
+            </div>
+            <div class="bar-item">
+              <div class="bar-label">Data Hygiene</div>
+              <div class="bar-track"><div class="bar-fill" style="width:70%"></div></div>
             </div>
           </div>
 
           <div class="card-actions">
-            <a class="video-intro-btn" href="https://drive.google.com/file/d/1KoLBwWquVwIhDapjT4xZ1_D_nuzHu3U4/view" target="_blank"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>Watch Intro Video</a>
+            <a class="video-intro-btn" href="https://candidate-video.com/uploads/88999088-1686-4124-b6b8-c23296d7a153" target="_blank"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>Watch Intro Video</a>
             
+            
+          </div>
+        </div>
+
+        
+        <div class="card-footer">
+          <div class="card-recruiter-note">
+            <div class="recruiter-note-title">Recruiter Note</div>
+            <p>Vuyisanani brings the rare combination of entrepreneurial drive and enterprise sales experience that Lone Star needs for their hyper-growth phase. His current role at Stone Creek Global handling global loan transactions proves he can navigate complex, high-stakes deals. The V-Gross Capital founding experience means he thinks like an owner, not just a sales rep. His track record of closing deals with minimal supervision at Business Partners directly addresses Harrison's need for someone who can take warm leads and run with them. Trade-off: His finance background means he'll need some ramp-up on micro-market terminology, but his deal-closing instincts are rock solid.</p>
           </div>
         </div>
       </div>
     </div>
     <div class="candidate-card">
-      <div class="card" id="candidate-2">
+      <div class="card" id="candidate-1">
         <div class="card-top">
           <div class="card-identity">
-            <div class="card-avatar">CB</div>
+            <div class="card-avatar">SJ</div>
             <div>
-              <div class="card-name">Clare Brits</div>
+              <div class="card-name">Sengezo J</div>
               <div class="card-location">
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-                South Africa · 15+ yrs B2B Sales
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                South Africa &middot; 14 yrs Sales/Client Management
               </div>
               <div class="card-badges">
                 
@@ -1685,7 +456,7 @@
             </div>
           </div>
           <div class="card-rate">
-            <div class="card-rate-amount">$4,500/mo</div>
+            <div class="card-rate-amount">$2,200/mo</div>
             <div class="card-rate-period">USD / Month</div>
           </div>
         </div>
@@ -1693,7 +464,7 @@
         <div class="card-body">
           
           <div class="card-narrative">
-            Clare is the calculated risk worth taking in this batch. She brings genuine horsepower from enterprise sales but costs 50% more than the others. The adult in the room who can handle your Class A property managers without breaking stride.
+            Sengezo is the scrappy media sales veteran. 14 years building client relationships in South African B2B markets. At CNBC Africa, he's already handling the proposal creation and client coordination that Harrison needs. More than meets the eye at this rate.
           </div>
 
           
@@ -1706,9 +477,9 @@
                 <div class="exp-line"></div>
               </div>
               <div class="exp-content">
-                <div class="exp-role">Senior Account Manager</div>
-                <div class="exp-company">Property Solutions SA · 2019 - Present</div>
-                
+                <div class="exp-role">Sales/Brand Solutions Coordinator</div>
+                <div class="exp-company">Africa Business News – CNBC Africa and Forbes Africa &middot; 1 March 2023 to date</div>
+                <div class="exp-highlight">• Preparing and revising sales presentations on Power Point to keep up with current market demands.</div>
               </div>
             </div>
             <div class="exp-item">
@@ -1717,9 +488,20 @@
                 <div class="exp-line"></div>
               </div>
               <div class="exp-content">
-                <div class="exp-role">Enterprise Sales Manager</div>
-                <div class="exp-company">Telkom Business · 2015 - 2019</div>
-                
+                <div class="exp-role">Dispatch Coordinator/Sales Admin/Technical Support</div>
+                <div class="exp-company">Selectech Pty Ltd &middot; Jan 2021 to February 2023</div>
+                <div class="exp-highlight">• Processing of purchase orders and monitoring order fulfillment from suppliers</div>
+              </div>
+            </div>
+            <div class="exp-item">
+              <div class="exp-dot-col">
+                <div class="exp-dot"></div>
+                <div class="exp-line"></div>
+              </div>
+              <div class="exp-content">
+                <div class="exp-role">Office &amp; Digital Marketing Manager</div>
+                <div class="exp-company">CDL SA &middot; Sept 2017 to May 2020</div>
+                <div class="exp-highlight">• Processing of orders and monitoring order fulfillment from suppliers</div>
               </div>
             </div>
             <div class="exp-item">
@@ -1728,9 +510,9 @@
                 
               </div>
               <div class="exp-content">
-                <div class="exp-role">Business Development Manager</div>
-                <div class="exp-company">SA Tech Startup · 2012 - 2015</div>
-                
+                <div class="exp-role">Digital Campaign Manager for Hypertext and Social Media manager</div>
+                <div class="exp-company">Hypertext Media Communications &middot; Jan 2014 to Aug 2017</div>
+                <div class="exp-highlight">• Serving as support system for the Sales Team, in management of all booked campaigns</div>
               </div>
             </div>
           </div>
@@ -1738,8 +520,8 @@
           
           <div class="card-section-title">Platforms &amp; Tools</div>
           <div class="tags-cluster">
-            <span class="ctag ctag-key">Enterprise Sales</span><span class="ctag ctag-key">CRM Management</span><span class="ctag ctag-key">B2B Prospecting</span><span class="ctag ctag-key">Account Management</span><span class="ctag ctag-key">Property Management Software</span>
-            
+            <span class="ctag ctag-key">Sales Presentations</span><span class="ctag ctag-key">Proposal Writing</span><span class="ctag ctag-key">Client Relationship Management</span><span class="ctag ctag-key">Campaign Coordination</span><span class="ctag ctag-key">PowerPoint</span>
+            <span class="ctag">Excel</span><span class="ctag">CRM</span>
           </div>
 
           
@@ -1747,13 +529,13 @@
           <div class="fit-grid">
             
             <div class="fit-item">
-              <div class="fit-label">15+ years B2B sales across tech and telecommunications sectors in South Africa</div>
+              <div class="fit-label">Custom proposal creation at CNBC Africa → Lone Star needs tailored presentations for property managers</div>
             </div>
             <div class="fit-item">
-              <div class="fit-label">Managed enterprise accounts worth R50M+ annually at previous telecommunications role</div>
+              <div class="fit-label">14 years B2B client relationship management → Harrison's warm inbound leads require relationship-building skills</div>
             </div>
             <div class="fit-item">
-              <div class="fit-label">Built sales processes from ground up at startup environments. Ships not just plans</div>
+              <div class="fit-label">Campaign coordination across multiple teams → Micro-market installations need cross-team project management</div>
             </div>
           </div>
 
@@ -1762,36 +544,50 @@
           <div class="strength-bars">
             
             <div class="bar-item">
-              <div class="bar-label">Enterprise Sales</div>
-              <div class="bar-track"><div class="bar-fill" style="width:95%"></div></div>
-            </div>
-            <div class="bar-item">
-              <div class="bar-label">CRM Management</div>
-              <div class="bar-track"><div class="bar-fill" style="width:90%"></div></div>
-            </div>
-            <div class="bar-item">
-              <div class="bar-label">B2B Prospecting</div>
+              <div class="bar-label">Sales Presentation</div>
               <div class="bar-track"><div class="bar-fill" style="width:88%"></div></div>
             </div>
             <div class="bar-item">
-              <div class="bar-label">Account Management</div>
+              <div class="bar-label">Client Relationships</div>
+              <div class="bar-track"><div class="bar-fill" style="width:92%"></div></div>
+            </div>
+            <div class="bar-item">
+              <div class="bar-label">Proposal Writing</div>
               <div class="bar-track"><div class="bar-fill" style="width:85%"></div></div>
             </div>
             <div class="bar-item">
-              <div class="bar-label">Property Management Software</div>
+              <div class="bar-label">CRM Management</div>
+              <div class="bar-track"><div class="bar-fill" style="width:75%"></div></div>
+            </div>
+            <div class="bar-item">
+              <div class="bar-label">Project Coordination</div>
               <div class="bar-track"><div class="bar-fill" style="width:82%"></div></div>
+            </div>
+            <div class="bar-item">
+              <div class="bar-label">Closing Skills</div>
+              <div class="bar-track"><div class="bar-fill" style="width:70%"></div></div>
             </div>
           </div>
 
           <div class="card-actions">
-            <a class="video-intro-btn" href="https://pub-320f624a298145c09bbf1003b5cf0a27.r2.dev/uploads/44a44d43-e254-4a4b-a30f-e2bdaef65410" target="_blank"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>Watch Intro Video</a>
+            <a class="video-intro-btn" href="https://candidate-video.com/uploads/52be594e-d310-4f72-8461-e9715629451c" target="_blank"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>Watch Intro Video</a>
             
+            
+          </div>
+        </div>
+
+        
+        <div class="card-footer">
+          <div class="card-recruiter-note">
+            <div class="recruiter-note-title">Recruiter Note</div>
+            <p>Sengezo brings the exact client-facing skillset Lone Star needs but from a different industry angle. His current role at CNBC Africa has him creating custom proposals and coordinating advertising campaigns, which translates directly to property manager relationships. The 4+ years at Hypertext shows he can handle full sales cycles and maintain long-term client relationships. He's not the typical SaaS closer, but he understands how to sell premium services to businesses. At $2200/month, he's wallet-friendly compared to the batch. The trade-off: you'll need to train him on property management terminology, but his client relationship skills are already polished.</p>
           </div>
         </div>
       </div>
     </div>
-    </div>
-    
+      </div>
+      <div class="fade-in">
+        
   <div class="comparison-section">
     <div class="section-label" style="padding-bottom:20px;">
       <h2>Side-by-Side Comparison</h2>
@@ -1802,43 +598,70 @@
         <thead>
           <tr>
             <th>Criteria</th>
-            <th>Fatu Mauridi</th><th>Gabri Lourens</th><th>Clare Brits</th>
+            <th>Vuyisanani M</th><th>Sengezo J</th>
           </tr>
         </thead>
         <tbody>
-          <tr><td><strong>Location</strong></td><td>South Africa</td><td>South Africa</td><td>South Africa</td></tr>
-          <tr><td><strong>Experience</strong></td><td>8 yrs Sales &amp; Account Management</td><td>8 yrs B2B Sales</td><td>15+ yrs B2B Sales</td></tr>
-          <tr><td><strong>Key Skills</strong></td><td>Salesforce, B2B Sales, Property Management, Telecom</td><td>HubSpot, LinkedIn Sales Navigator, Cold Outreach, Territory Management</td><td>Enterprise Sales, CRM Management, B2B Prospecting, Account Management</td></tr>
-          <tr><td><strong>Rate</strong></td><td>$2,000/mo</td><td>$3,000/mo</td><td>$4,500/mo</td></tr>
-          <tr><td><strong>TAP</strong></td><td>No</td><td>No</td><td>No</td></tr>
+          <tr><td><strong>Location</strong></td><td>South Africa</td><td>South Africa</td></tr>
+          <tr><td><strong>Experience</strong></td><td>8+ yrs Sales &amp; Finance</td><td>14 yrs Sales/Client Management</td></tr>
+          <tr><td><strong>Key Employers</strong></td><td>V-Gross Capital, Stone Creek Global, Liberty Group</td><td>Africa Business News – CNBC Africa and Forbes Africa, Selectech Pty Ltd, CDL SA</td></tr>
+          <tr><td><strong>Core Strength</strong></td><td>Deal Closing, Financial Analysis, SAP</td><td>Sales Presentations, Proposal Writing, Client Relationship Management</td></tr>
+          <tr><td><strong>HRIS / Tools</strong></td><td>Deal Closing, Financial Analysis, SAP, Client Management, Business Development</td><td>Sales Presentations, Proposal Writing, Client Relationship Management, Campaign Coordination, PowerPoint</td></tr>
+          <tr><td><strong>Languages</strong></td><td>English</td><td>English</td></tr>
+          <tr><td><strong>Education</strong></td><td>Bachelor of Commerce (Business Management &amp; Economics) (University of Fort Hare); Currently Accepted for an MBA programme with the University of London (Raising Funds) (University of London)</td><td>Bachelor of Applied Communication Management (University of Fort Hare)</td></tr>
+          <tr><td><strong>Rate</strong></td><td>$3,000/mo</td><td class="highlight-cell">$2,200/mo</td></tr>
+          
         </tbody>
       </table>
     </div>
   </div>
-  </div>
-
-  <div class="advisor-section">
-    <div class="section-label" style="padding-bottom:20px;">
-      <h2>Your Talent Advisor</h2>
+      </div>
     </div>
+  </section>
+
+  <div class="advisor-section fade-in">
+    <div class="advisor-section-label">Your Talent Advisor</div>
     <div class="advisor-card">
-      <img class="advisor-avatar" src="https://saganrecruitment.com/wp-content/uploads/2026/03/image-1.png" alt="Nadeia Campbell">
+      <img class="advisor-avatar" src="https://saganrecruitment.com/wp-content/uploads/2025/08/Camilla-.jpg" alt="Cami Poloche" />
       <div class="advisor-info">
         <div class="advisor-label">Sagan Talent Advisor</div>
-        <div class="advisor-name">Nadeia Campbell</div>
+        <div class="advisor-name">Cami Poloche</div>
         <div class="advisor-role">Sagan · Recruitment Team — Talent Advisor</div>
-        <p class="advisor-summary">Nadeia brings a background in sales and recruiting with a relationship-driven approach. She is your direct point of contact for scheduling interviews and coordinating next steps.</p>
+        <p class="advisor-summary">Cami is passionate about connecting top talent with the right opportunities. She is your direct point of contact for scheduling interviews and coordinating next steps.</p>
       </div>
     </div>
   </div>
 
+  <div class="sagan-info">
+    <div class="sagan-info-inner">
+      <div class="sagan-stat">
+        <div class="sagan-stat-number">20,000+</div>
+        <div class="sagan-stat-label">Applications / month</div>
+      </div>
+      <div class="sagan-stat">
+        <div class="sagan-stat-number">2,000+</div>
+        <div class="sagan-stat-label">Placements made</div>
+      </div>
+      <div class="sagan-stat">
+        <div class="sagan-stat-number">30+</div>
+        <div class="sagan-stat-label">Countries</div>
+      </div>
+    </div>
+  </div>
+
+  <section class="footer-cta fade-in">
+    <h2>Ready to <strong>meet your next Account Executive?</strong></h2>
+    <p>Tell us who you want to interview and we'll set it up within 24 hours.</p>
+    <a class="footer-contact" href="mailto:jesus.p@getsagan.com">Schedule Next Steps</a>
+  </section>
+
   <footer class="site-footer">
     <div class="footer-logos">
-      <img src="https://www.lonestarmarkets.com/assets/market_photos/victor.jpg" alt="Lone Star Markets" style="height:24px;" onerror="this.style.display='none'">
-      <span class="footer-x">×</span>
-      <img src="https://saganrecruitment.com/wp-content/uploads/2025/10/Sagan-Logo-2-e1759568299542.png" alt="Sagan">
+      <img src="https://www.lonestarmarkets.com/assets/market_photos/victor.jpg" alt="Lone Star Markets" style="height:22px;" onerror="this.style.display='none'" />
+      <span class="footer-x">&times;</span>
+      <img src="https://saganrecruitment.com/wp-content/uploads/2025/10/Sagan-Logo-2-e1759568299542.png" alt="Sagan" />
     </div>
-    <p>Prepared by <a href="https://getsagan.com" target="_blank">Sagan</a> for Lone Star Markets · Account Executive Search · March 31, 2026</p>
+    <p>Prepared by <a href="https://getsagan.com" target="_blank">Sagan</a> for Lone Star Markets &middot; Account Executive Search &middot; June 12, 2026</p>
   </footer>
 
   <script>
@@ -1850,6 +673,41 @@
       if (panel) panel.classList.remove('hidden');
       if (btn) btn.classList.add('active');
     }
-  </script>
 
-<script data-batch-js="1">function showBatch(n){document.querySelectorAll('.batch-panel').forEach(p=>p.classList.add('hidden'));document.querySelectorAll('.batch-btn').forEach(b=>b.classList.remove('active'));var p=document.getElementById('batch-'+n);var b=document.querySelector('[data-batch="'+n+'"]');if(p)p.classList.remove('hidden');if(b)b.classList.add('active');}</script></body></html>
+    /* Scroll animations */
+    (function() {
+      var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.15 });
+      document.querySelectorAll('.fade-in').forEach(function(el) { observer.observe(el); });
+
+      /* Animate candidate cards */
+      document.querySelectorAll('.candidate-card').forEach(function(el) {
+        el.classList.add('fade-in');
+        observer.observe(el);
+      });
+
+      /* Animate strength bars on scroll */
+      var barObserver = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            var fills = entry.target.querySelectorAll('.bar-fill');
+            fills.forEach(function(fill) {
+              var w = fill.style.width;
+              fill.style.width = '0%';
+              setTimeout(function() { fill.style.width = w; }, 100);
+            });
+            barObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.2 });
+      document.querySelectorAll('.strength-bars').forEach(function(el) { barObserver.observe(el); });
+    })();
+  </script>
+</body>
+</html>
